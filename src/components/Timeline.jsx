@@ -1,0 +1,168 @@
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Heart, MapPin, Camera, Wine, Music, Mic2, Coffee, Sparkles, Cake, Disc3, Figma, Droplets } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const events = [
+  { time: "10:00", title: "Sightseeing", desc: "Kristiansand sentrum for de som vil", side: "left", icon: MapPin },
+  { time: "14:30", title: "Vielse", desc: "Oddernes Kirke", side: "right", highlight: true, icon: Heart },
+  { time: "15:30", title: "Felles fotografering", desc: "Familie og venner", side: "left", icon: Camera },
+  { time: "16:30", title: "Stor FestMiddag", desc: "Taler og god mat", side: "right", highlight: true, icon: Wine },
+  { time: "17:30", title: "Underholdning", desc: "Overraskelser", side: "left", icon: Music },
+  { time: "18:00", title: "Taler", desc: "Ord for dagen", side: "right", icon: Mic2 },
+  { time: "19:00", title: "Kaffe og Kaker", desc: "Søtsaker", side: "left", icon: Coffee },
+  { time: "20:00", title: "Leker", desc: "Moro for alle", side: "right", icon: Sparkles },
+  { time: "21:00", title: "Kakeskjæring", desc: "Bryllupskake", side: "left", highlight: true, icon: Cake },
+  { time: "22:00", title: "Mer underholdning", desc: "Dans og musikk", side: "right", icon: Disc3 },
+  { time: "23:00", title: "Brudedansen", desc: "Valsen", side: "left", highlight: true, icon: Figma },
+  { time: "00:00", title: "Bading", desc: "For de tøffe!", side: "right", icon: Droplets },
+];
+
+const Timeline = () => {
+  const svgRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!svgRef.current) return;
+
+    const path = svgRef.current.querySelector("path");
+    if (!path) return;
+
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        scrub: 1.5,
+        markers: false
+      }
+    });
+
+    const items = containerRef.current.querySelectorAll('[data-timeline-item]');
+    items.forEach((item, i) => {
+      const anchor = item.querySelector('[data-anchor]');
+      if (anchor) {
+        gsap.fromTo(anchor,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.5)",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 60%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+
+      const textBox = item.querySelector('[data-text-box]');
+      if (textBox) {
+        gsap.fromTo(textBox,
+          { x: events[i].side === 'left' ? -50 : 50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 60%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
+  return (
+    <section id="timeline-section" className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-gradient-to-b from-[#EBC7C7] to-[#F9B89B] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 relative" ref={containerRef}>
+        <h2 className="text-center font-vibes text-7xl md:text-8xl mb-20" style={{
+          background: 'linear-gradient(135deg, #B76E79, #C5A059)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          color: 'transparent'
+        }}>
+          Bryllupet
+        </h2>
+
+        <svg
+          ref={svgRef}
+          className="absolute top-32 left-1/2 -translate-x-1/2 w-1 md:w-2 h-[120%] z-0 overflow-visible"
+          viewBox="0 0 100 3000"
+          preserveAspectRatio="none"
+          style={{ pointerEvents: 'none' }}
+        >
+          <path
+            d="M50,0 Q30,150 50,300 Q70,450 50,600 Q30,750 50,900 Q70,1050 50,1200 Q30,1350 50,1500 Q70,1650 50,1800 Q30,1950 50,2100 Q70,2250 50,2400 Q30,2550 50,2700 Q70,2850 50,3000"
+            fill="none"
+            stroke="#C5A059"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        <div className="relative z-10 space-y-32">
+          {events.map((evt, i) => {
+            const IconComponent = evt.icon;
+            const isLeft = evt.side === 'left';
+
+            return (
+              <div key={i} data-timeline-item className="relative flex items-center">
+                <div className={`w-full flex ${isLeft ? 'flex-row-reverse' : ''} items-center gap-8`}>
+                  <div className="flex-1" data-text-box>
+                    <div className={`p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-sm ${
+                      evt.highlight
+                        ? 'bg-white/85 border-antique-gold/40 ring-2 ring-antique-gold/20'
+                        : 'bg-white/70 border-white/40'
+                    }`}>
+                      <div className="text-sm font-cinzel tracking-wider text-antique-gold/60 mb-1 uppercase">
+                        {evt.time}
+                      </div>
+                      <h3 className="font-cinzel text-xl md:text-2xl font-bold text-deep-charcoal mb-2">
+                        {evt.title}
+                      </h3>
+                      <p className="text-gray-600 font-montserrat text-sm italic">
+                        {evt.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex-shrink-0 flex justify-center" data-anchor>
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border-2 transition-all ${
+                      evt.highlight
+                        ? 'bg-gradient-to-br from-antique-gold to-yellow-400 border-yellow-500 shadow-antique-gold/30'
+                        : 'bg-white/80 border-antique-gold/30'
+                    }`}>
+                      <IconComponent size={32} className={evt.highlight ? 'text-white' : 'text-antique-gold'} strokeWidth={1.5} />
+                    </div>
+                  </div>
+
+                  <div className="flex-1" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Timeline;
