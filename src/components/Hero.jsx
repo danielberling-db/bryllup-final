@@ -34,9 +34,9 @@ const Hero = () => {
       </div>
 
       {/* Typography Layer - Under bildet */}
-      <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-4">
+      <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-3 sm:px-4">
         <h1
-          className="text-5xl md:text-7xl lg:text-8xl font-cinzel font-black drop-shadow-lg mb-3 md:mb-4"
+          className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-cinzel font-black drop-shadow-lg mb-2 sm:mb-3 md:mb-4"
           style={{
             background: 'linear-gradient(90deg, #B76E79 0%, #C5A059 50%, #B76E79 100%)',
             backgroundSize: '200% 100%',
@@ -50,7 +50,7 @@ const Hero = () => {
           REMINE & DANIEL
         </h1>
         <p 
-          className="font-vibes text-xl md:text-2xl lg:text-3xl"
+          className="font-vibes text-base sm:text-lg md:text-2xl lg:text-3xl"
           style={{
             color: '#8B6914',
             fontWeight: 500,
