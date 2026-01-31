@@ -38,8 +38,8 @@ const Intro = () => {
   ];
 
   return (
-    <section className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+    <section className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
         <div ref={textRef} className="space-y-6">
           {text.map((line, lineIndex) => (
             <p

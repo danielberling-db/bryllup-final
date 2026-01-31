@@ -76,7 +76,7 @@ function App() {
 
       <main className="flex flex-col w-full m-0 p-0 space-y-0">
         {/* Navigation with Countdown */}
-        <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-antique-gold/20">
+        <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 md:py-4 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-antique-gold/20">
            <div className="flex items-center flex-shrink-0">
              <a
                href="#rsvp-section"

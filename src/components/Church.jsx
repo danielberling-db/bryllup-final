@@ -52,7 +52,7 @@ const Church = () => {
     <section
       ref={sectionRef}
       id="church-section"
-      className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden"
+      className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden"
     >
       <div
         ref={containerRef}
@@ -81,7 +81,7 @@ const Church = () => {
         />
       </div>
 
-      <div ref={contentRef} className="relative z-10 backdrop-blur-[15px] bg-white/75 border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] p-8 md:p-10 rounded-lg max-w-sm md:max-w-md text-center mx-4 transition-all duration-300">
+      <div ref={contentRef} className="relative z-10 backdrop-blur-[15px] bg-white/75 border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] p-6 md:p-10 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
         <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
           VIELSEN
         </h2>

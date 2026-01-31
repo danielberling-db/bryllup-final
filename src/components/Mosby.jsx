@@ -23,8 +23,8 @@ const Mosby = () => {
   ];
 
   return (
-    <section id="mosby-section" className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-gradient-to-b from-[#EBC7C7] to-[#F9B89B] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="mosby-section" className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-gradient-to-b from-[#EBC7C7] to-[#F9B89B] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-deep-charcoal mb-4"
               style={{

@@ -32,7 +32,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-[#FFFFFF] text-center overflow-hidden">
+    <footer className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-[#FFFFFF] text-center overflow-hidden">
       {/* Decorative Gradient Orbs */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <h2
           className="font-vibes text-6xl md:text-8xl mb-8 p-4"
           style={{

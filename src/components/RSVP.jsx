@@ -83,7 +83,7 @@ ${data.message || 'Ingen melding'}
   };
 
   return (
-    <section id="rsvp-section" className="w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-[#FFFFFF] p-4 overflow-hidden relative">
+    <section id="rsvp-section" className="w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-[#FFFFFF] px-4 sm:px-6 overflow-hidden relative">
       {!isSent ? (
         <div className={`rsvp-card relative w-[90vw] max-w-[600px] min-h-[500px] perspective-1200 cursor-pointer transition-all duration-700 transform-style-3d ${isOpen ? 'rotate-y-180' : ''}`} onClick={() => !isOpen && setIsOpen(true)}>
 

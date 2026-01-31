@@ -91,8 +91,8 @@ const Timeline = () => {
   }, []);
 
   return (
-    <section id="timeline-section" className="relative w-full m-0 flex flex-col items-center justify-center py-20 md:py-32 bg-gradient-to-b from-[#EBC7C7] to-[#F9B89B] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 relative" ref={containerRef}>
+    <section id="timeline-section" className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-gradient-to-b from-[#EBC7C7] to-[#F9B89B] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative" ref={containerRef}>
         <h2 className="text-center font-vibes text-7xl md:text-8xl mb-20" style={{
           background: 'linear-gradient(135deg, #B76E79, #C5A059)',
           WebkitBackgroundClip: 'text',

@@ -22,9 +22,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full m-0 overflow-hidden flex flex-col items-center justify-center py-8 bg-gradient-to-b from-[#FFFDF5] to-[#F2E8DA]">
+    <section ref={containerRef} className="relative w-full m-0 overflow-hidden flex flex-col items-center justify-center pt-8 pb-4 md:pb-8 bg-gradient-to-b from-[#FFFDF5] to-[#F2E8DA]">
       {/* Hovedbilde - Sentrert øverst */}
-      <div className="relative z-10 flex items-center justify-center mb-6 md:mb-8">
+      <div className="relative z-10 flex items-center justify-center mb-4 md:mb-8 px-4 sm:px-6">
         <div ref={heroImgRef} className="relative w-full max-w-[1000px] rounded-[24px] shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02]">
           <div className="relative overflow-hidden">
             <img src="/aaker.jpg" alt="Remine & Daniel" className="w-full max-h-[60vh] object-cover" loading="eager" />
@@ -34,10 +34,11 @@ const Hero = () => {
       </div>
 
       {/* Typography Layer - Under bildet */}
-      <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-3 sm:px-4">
+      <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-4 sm:px-6">
         <h1
-          className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-cinzel font-black drop-shadow-lg mb-2 sm:mb-3 md:mb-4"
+          className="font-cinzel font-black drop-shadow-lg mb-2 sm:mb-3 md:mb-4"
           style={{
+            fontSize: 'clamp(1.75rem, 5vw, 6rem)',
             background: 'linear-gradient(90deg, #B76E79 0%, #C5A059 50%, #B76E79 100%)',
             backgroundSize: '200% 100%',
             WebkitBackgroundClip: 'text',
@@ -50,8 +51,9 @@ const Hero = () => {
           REMINE & DANIEL
         </h1>
         <p 
-          className="font-vibes text-base sm:text-lg md:text-2xl lg:text-3xl"
+          className="font-vibes"
           style={{
+            fontSize: 'clamp(0.875rem, 2.5vw, 1.875rem)',
             color: '#8B6914',
             fontWeight: 500,
             textShadow: '0 2px 8px rgba(139, 105, 20, 0.3)'
