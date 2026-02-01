@@ -36,7 +36,7 @@ const Hero = () => {
       {/* Typography Layer - Delt over to linjer */}
       <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-8 md:px-6 -mt-2 md:mt-0">
         <h1
-          className="font-cinzel font-black drop-shadow-lg mb-2 md:mb-4 text-6xl md:text-8xl leading-tight"
+          className="font-cinzel font-black drop-shadow-lg mb-2 md:mb-4 text-5xl md:text-8xl leading-tight"
           style={{
             background: 'linear-gradient(90deg, #B76E79 0%, #C5A059 50%, #B76E79 100%)',
             backgroundSize: '200% 100%',

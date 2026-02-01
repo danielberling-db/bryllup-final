@@ -81,25 +81,25 @@ const Church = () => {
         />
       </div>
 
-      <div ref={contentRef} className="relative z-10 backdrop-blur-xl bg-white/30 border border-white/50 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] p-6 md:p-10 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
-        <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-lg">
+      <div ref={contentRef} className="relative z-10 backdrop-blur-xl bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
+        <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-slate-900 mb-4 drop-shadow-lg">
           VIELSEN
         </h2>
 
-        <p className="font-montserrat italic text-gray-900 mb-4 text-lg font-semibold drop-shadow-lg">
+        <p className="font-montserrat italic text-slate-900 mb-4 text-lg font-semibold drop-shadow-lg">
           Spenningen venter i vakre Oddernes Kirke på Lund.
         </p>
 
         <div className="my-6 space-y-2">
           <p className="font-cinzel text-xl">
-            <span className="text-gray-900 font-bold drop-shadow-lg">
+            <span className="text-slate-900 font-bold drop-shadow-lg">
               23. Mai 2026 • Kl. 14:30
             </span>
           </p>
-          <p className="text-sm italic text-gray-900 font-semibold drop-shadow-lg">(Dørene åpnes 14:10)</p>
+          <p className="text-sm italic text-slate-900 font-semibold drop-shadow-lg">(Dørene åpnes 14:10)</p>
         </div>
 
-        <div className="my-6 font-montserrat text-gray-900 space-y-1 font-semibold drop-shadow-lg">
+        <div className="my-6 font-montserrat text-slate-900 space-y-1 font-semibold drop-shadow-lg">
           <p>Adresse:</p>
           <p>Jegersbergveien 2, 4630 Kristiansand S</p>
           <p className="text-sm mt-2">
