@@ -92,12 +92,12 @@ function App() {
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
            <div className="flex justify-between w-full items-center">
-             <div className="flex items-center flex-shrink-0 z-10">
+             <div className="flex items-center justify-start flex-shrink-0 z-10">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-6 md:px-10 py-3.5 md:py-4 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-base md:text-xl whitespace-nowrap"
                >
                  SVAR
                </a>
@@ -136,13 +136,13 @@ function App() {
                ))}
              </a>
 
-             <div className="flex items-center justify-center gap-1 md:gap-4 flex-shrink-0 z-10">
+             <div className="flex items-center justify-end flex-shrink-0 z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-3 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-3.5 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={28} className="md:w-10 md:h-10" /> : <Menu size={28} className="md:w-10 md:h-10" />}
+                 {menuOpen ? <X size={32} className="md:w-12 md:h-12" /> : <Menu size={32} className="md:w-12 md:h-12" />}
                </button>
              </div>
            </div>
