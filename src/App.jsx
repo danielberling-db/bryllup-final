@@ -85,7 +85,7 @@ function App() {
       {/* Kromatisk Tidsreise - Dynamic Scroll Gradient */}
       <ScrollGradient />
 
-      <main className="flex flex-col w-full m-0 p-0 space-y-0">
+      <main className="flex flex-col w-full max-w-full m-0 p-0 space-y-0 overflow-x-hidden">
         {/* Navigation with Countdown - Sunset Gradient Header */}
         <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 pt-6 md:pt-6 py-3 md:py-4 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`

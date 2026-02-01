@@ -32,7 +32,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-[#FFFFFF] text-center overflow-hidden">
+    <footer className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-[#FFFFFF] text-center overflow-hidden">
       {/* Decorative Gradient Orbs */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div

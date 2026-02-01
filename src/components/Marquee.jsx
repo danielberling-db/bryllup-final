@@ -46,12 +46,12 @@ const Marquee = ({ opacity = 0.02, color = "#87CEEB" }) => {
           }
         }
       `}</style>
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 bg-gradient-to-b from-transparent via-transparent to-transparent">
-        <div className="absolute inset-0 flex flex-col justify-around">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 bg-gradient-to-b from-transparent via-transparent to-transparent max-w-full">
+        <div className="absolute inset-0 flex flex-col justify-around max-w-full">
           {[0, 1, 2, 3, 4].map((row) => (
             <div
               key={row}
-              className="whitespace-nowrap"
+              className="whitespace-nowrap max-w-full overflow-hidden"
               style={{
                 animation: row % 2 === 0 ? 'marquee 120s linear infinite' : 'marquee-reverse 120s linear infinite',
                 opacity: 1,

@@ -37,7 +37,7 @@ const ScrollGradient = () => {
 
   return (
     <div
-      className="fixed inset-0 -z-30 transition-all duration-1000 ease-out"
+      className="fixed inset-0 -z-30 transition-all duration-1000 ease-out max-w-full overflow-hidden"
       style={{
         background: getGradient()
       }}

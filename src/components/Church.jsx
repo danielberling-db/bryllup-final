@@ -52,7 +52,7 @@ const Church = () => {
     <section
       ref={sectionRef}
       id="church-section"
-      className="relative w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden"
+      className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden"
     >
       <div
         ref={containerRef}
