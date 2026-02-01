@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       q: "Kan vi ta med barna?",
-      a: "Vi elsker barn, men ønsker i utgangspunktet en voksen fest. Send oss gjerne en henvendelse i svarskjemaet angående barn, men vi ser helst at de blir hentet eller får barnepass etter middagen.",
+      a: "Gjester kan sende en henvendelse i svarskjemaet angående å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en tid etter middag.",
       category: "logistics"
     },
     {
@@ -32,7 +32,7 @@ const FAQ = () => {
     },
     {
       q: "Jeg har allergier eller diettbehov. Hva gjør jeg?",
-      a: "Allergier meldes i svarskjemaet.",
+      a: "Ingen fare! Si ifra i RSVP-skjemaet (klikk på 'SVAR'-knappen). Vi sørger for at alle blir mette og glade, uansett behov.",
       category: "party"
     },
     {
