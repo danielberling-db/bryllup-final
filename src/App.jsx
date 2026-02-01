@@ -136,13 +136,13 @@ function App() {
                ))}
              </a>
 
-             <div className="flex items-center justify-center gap-1 md:gap-4 flex-shrink-0 z-10">
+             <div className="flex items-center justify-end flex-shrink-0 z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
                  className="p-3 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={28} className="md:w-10 md:h-10" /> : <Menu size={28} className="md:w-10 md:h-10" />}
+                 {menuOpen ? <X size={36} className="md:w-14 md:h-14" /> : <Menu size={36} className="md:w-14 md:h-14" />}
                </button>
              </div>
            </div>

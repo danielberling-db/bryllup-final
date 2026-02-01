@@ -9,9 +9,9 @@ const RSVP = () => {
             <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Til Remine & Daniel</p>
             <div className="inline-block w-32 h-32 rounded-full border-4 border-deep-charcoal opacity-40 flex items-center justify-center -rotate-12 mb-6">
               <span className="text-sm font-bold text-center">ODDERNES KIRKE<br/>23.05.2026</span>
-            </div>
+             </div>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl font-cinzel font-bold text-antique-gold mb-8">KOMMER DU?</h2>
           
           <p className="font-montserrat text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
@@ -24,11 +24,11 @@ const RSVP = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 w-full md:w-auto px-10 md:px-14 py-4 md:py-6 bg-gradient-to-r from-antique-gold to-[#FFD700] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-cinzel tracking-widest text-lg md:text-xl"
-          >
+                >
             SVAR PÅ INVITASJONEN
           </a>
         </div>
-      </div>
+        </div>
     </section>
   );
 };

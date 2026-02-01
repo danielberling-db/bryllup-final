@@ -6,11 +6,11 @@ const Logistics = () => {
   const handleCityboxClick = async () => {
     try {
       await navigator.clipboard.writeText('REMDAN30');
-      setCopied(true);
-      setTimeout(() => {
-        window.open('https://citybox.no', '_blank');
-      }, 500);
-      setTimeout(() => setCopied(false), 2000);
+    setCopied(true);
+    setTimeout(() => {
+      window.open('https://citybox.no', '_blank');
+    }, 500);
+    setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
       window.open('https://citybox.no', '_blank');
@@ -60,30 +60,30 @@ const Logistics = () => {
           </div>
 
           {/* AIRBNB CARD */}
-          <a
-            href="https://www.airbnb.no/s/Kristiansand/homes?checkin=2026-05-23&checkout=2026-05-24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
-          >
-            <div className="h-48 bg-gray-300 flex items-center justify-center overflow-hidden">
+            <a
+              href="https://www.airbnb.no/s/Kristiansand/homes?checkin=2026-05-23&checkout=2026-05-24"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
+            >
+              <div className="h-48 bg-gray-300 flex items-center justify-center overflow-hidden">
               <img src="/airbnb.jpg" alt="Airbnb" className="w-full h-full object-cover" loading="lazy" width="400" height="192" />
-            </div>
+              </div>
 
-            <div className="p-6 text-center">
-              <h3 className="font-cinzel text-2xl font-bold text-[#FF5A5F] mb-2">
-                AIRBNB
-              </h3>
+              <div className="p-6 text-center">
+                <h3 className="font-cinzel text-2xl font-bold text-[#FF5A5F] mb-2">
+                  AIRBNB
+                </h3>
 
-              <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
-                Ønsker dere noe eget? Det finnes mange gode Airbnb-muligheter i nærheten.
-              </p>
+                <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
+                  Ønsker dere noe eget? Det finnes mange gode Airbnb-muligheter i nærheten.
+                </p>
 
-              <button className="w-full border-2 border-[#FF5A5F] text-[#FF5A5F] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5A5F] hover:text-white font-montserrat">
-                SE ALTERNATIVER
-              </button>
-            </div>
-          </a>
+                <button className="w-full border-2 border-[#FF5A5F] text-[#FF5A5F] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5A5F] hover:text-white font-montserrat">
+                  SE ALTERNATIVER
+                </button>
+              </div>
+            </a>
         </div>
       </div>
     </section>
