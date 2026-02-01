@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full m-0 overflow-hidden flex flex-col items-center justify-center min-h-[85vh] md:min-h-0 pt-32 md:pt-20 pb-0 md:pb-8 bg-gradient-to-b from-[#FFFDF5] to-[#F2E8DA]">
+    <section ref={containerRef} className="relative w-full m-0 overflow-hidden flex flex-col items-center justify-center min-h-[85vh] md:min-h-0 pt-48 md:pt-28 pb-0 md:pb-8 bg-gradient-to-b from-[#FFFDF5] to-[#F2E8DA]">
       {/* Hovedbilde - Starter fra toppen, skinner gjennom header */}
       <div className="relative z-10 flex items-center justify-center mb-2 md:mb-8 px-8 md:px-6">
         <div ref={heroImgRef} className="relative w-full max-w-[1000px] rounded-[24px] shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02]">
@@ -33,10 +33,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Typography Layer - Massive på mobil */}
+      {/* Typography Layer - Delt over to linjer */}
       <div ref={textRef} className="relative z-10 text-center flex flex-col items-center px-8 md:px-6 -mt-2 md:mt-0">
         <h1
-          className="font-cinzel font-black drop-shadow-lg mb-4 md:mb-4 text-7xl md:text-8xl"
+          className="font-cinzel font-black drop-shadow-lg mb-2 md:mb-4 text-7xl md:text-8xl leading-tight"
           style={{
             background: 'linear-gradient(90deg, #B76E79 0%, #C5A059 50%, #B76E79 100%)',
             backgroundSize: '200% 100%',
@@ -47,7 +47,8 @@ const Hero = () => {
             letterSpacing: '0.05em'
           }}
         >
-          REMINE & DANIEL
+          <div>REMINE</div>
+          <div>& DANIEL</div>
         </h1>
         <p 
           className="font-vibes text-lg md:text-xl lg:text-3xl"
