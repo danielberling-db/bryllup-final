@@ -2,37 +2,19 @@ import React, { useState, useRef } from 'react';
 
 const Logistics = () => {
   const [copied, setCopied] = useState(false);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const cardsRef = useRef([]);
 
-  const handleMouseMove = (index, e) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const rotateX = (e.clientY - centerY) * 0.5;
-    const rotateY = -(e.clientX - centerX) * 0.5;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-  };
-
-  const handleMouseLeave = (index) => {
-    const card = cardsRef.current[index];
-    if (card) {
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-    }
-  };
-
-  const handleCityboxClick = () => {
-    navigator.clipboard.writeText('RemineogDaniel');
-    setCopied(true);
-    setTimeout(() => {
+  const handleCityboxClick = async () => {
+    try {
+      await navigator.clipboard.writeText('REMDAN30');
+      setCopied(true);
+      setTimeout(() => {
+        window.open('https://citybox.no', '_blank');
+      }, 500);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
       window.open('https://citybox.no', '_blank');
-    }, 500);
-    setTimeout(() => setCopied(false), 2000);
+    }
   };
 
 
@@ -43,15 +25,11 @@ const Logistics = () => {
           Ingen fest uten overnatting
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
           {/* CITYBOX CARD */}
           <div
-            ref={(el) => cardsRef.current[0] = el}
             onClick={handleCityboxClick}
-            onMouseMove={(e) => handleMouseMove(0, e)}
-            onMouseLeave={() => handleMouseLeave(0)}
             className="cursor-pointer group"
-            style={{ transition: 'transform 0.1s ease-out' }}
           >
             <div className="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl">
               <div className="h-48 bg-deep-charcoal flex items-center justify-center relative overflow-hidden">
@@ -66,12 +44,12 @@ const Logistics = () => {
 
               <div className="p-6 text-center">
                 <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
-                  Ingen skal dra hjem! Sentralt i sentrum. 40% rabattkoder inkludert i prisen.
+                  Ingen skal dra hjem! Sentralt i sentrum. 30% rabattkoder inkludert i prisen.
                 </p>
 
                 <div className="my-4 p-4 bg-organic-almond rounded-lg">
                   <p className="font-bold text-deep-charcoal text-sm mb-2">RABATTKODE:</p>
-                  <p className="text-antique-gold font-cinzel text-2xl font-bold">RemineogDaniel</p>
+                  <p className="text-antique-gold font-cinzel text-2xl font-bold">REMDAN30</p>
                 </div>
 
                 <button className="w-full border-2 border-neon-pink text-neon-pink px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-neon-pink hover:text-white font-montserrat">
@@ -81,77 +59,31 @@ const Logistics = () => {
             </div>
           </div>
 
-          {/* SOVESAL CARD */}
+          {/* AIRBNB CARD */}
           <a
-            href="https://forms.gle/g58x6q98UHBacM6z7"
+            href="https://www.airbnb.no/s/Kristiansand/homes?checkin=2026-05-23&checkout=2026-05-24"
             target="_blank"
             rel="noopener noreferrer"
-            ref={(el) => cardsRef.current[1] = el}
-            onMouseMove={(e) => handleMouseMove(1, e)}
-            onMouseLeave={() => handleMouseLeave(1)}
-            className="cursor-pointer group block"
-            style={{ transition: 'transform 0.1s ease-out' }}
+            className="block bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
           >
-            <div className="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl">
-              <div className="h-48 bg-gray-300 flex items-center justify-center overflow-hidden">
-                <img src="/hus.jpg" alt="Sovesal & Hus" className="w-full h-full object-cover" loading="lazy" width="400" height="192" />
-              </div>
+            <div className="h-48 bg-gray-300 flex items-center justify-center overflow-hidden">
+              <img src="/airbnb.jpg" alt="Airbnb" className="w-full h-full object-cover" loading="lazy" width="400" height="192" />
+            </div>
 
-              <div className="p-6 text-center">
-                <h3 className="font-cinzel text-2xl font-bold mb-2"
-                    style={{
-                      background: 'linear-gradient(90deg, #6495ED 0%, #FFB6C1 100%)',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      color: 'transparent'
-                    }}>
-                  SOVESAL & HUS
-                </h3>
+            <div className="p-6 text-center">
+              <h3 className="font-cinzel text-2xl font-bold text-[#FF5A5F] mb-2">
+                AIRBNB
+              </h3>
 
-                <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
-                  Vi tilbyr rimelig overnatting for single og ungdommer! 200,- per pers/natt. Bestilles i registreringen.
-                </p>
+              <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
+                Ønsker dere noe eget? Det finnes mange gode Airbnb-muligheter i nærheten.
+              </p>
 
-                <div className="w-full border-2 border-antique-gold text-antique-gold px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-antique-gold hover:text-white font-montserrat text-center">
-                  GÅ TIL RSVP
-                </div>
-              </div>
+              <button className="w-full border-2 border-[#FF5A5F] text-[#FF5A5F] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5A5F] hover:text-white font-montserrat">
+                SE ALTERNATIVER
+              </button>
             </div>
           </a>
-
-          {/* AIRBNB CARD */}
-          <div
-            ref={(el) => cardsRef.current[2] = el}
-            onMouseMove={(e) => handleMouseMove(2, e)}
-            onMouseLeave={() => handleMouseLeave(2)}
-            className="group"
-            style={{ transition: 'transform 0.1s ease-out' }}
-          >
-            <a
-              href="https://www.airbnb.no/s/Kristiansand/homes?checkin=2026-05-23&checkout=2026-05-24"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
-            >
-              <div className="h-48 bg-gray-300 flex items-center justify-center overflow-hidden">
-                <img src="/airbnb.jpg" alt="Airbnb" className="w-full h-full object-cover" loading="lazy" width="400" height="192" />
-              </div>
-
-              <div className="p-6 text-center">
-                <h3 className="font-cinzel text-2xl font-bold text-[#FF5A5F] mb-2">
-                  AIRBNB
-                </h3>
-
-                <p className="font-montserrat text-gray-700 mb-4 leading-relaxed">
-                  Ønsker dere noe eget? Det finnes mange gode Airbnb-muligheter i nærheten.
-                </p>
-
-                <button className="w-full border-2 border-[#FF5A5F] text-[#FF5A5F] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5A5F] hover:text-white font-montserrat">
-                  SE ALTERNATIVER
-                </button>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </section>

@@ -7,7 +7,6 @@ import Intro from './components/Intro';
 import SaltPepper from './components/SaltPepper';
 import Church from './components/Church';
 import Timeline from './components/Timeline';
-import Mosby from './components/Mosby';
 import Logistics from './components/Logistics';
 import GiftReveal from './components/GiftReveal';
 import FAQ from './components/FAQ';
@@ -16,6 +15,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -46,11 +46,18 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menuItems = [
     { label: 'HJEM', href: '#' },
     { label: 'VIELSEN', href: '#church-section' },
     { label: 'TIDSPLAN', href: '#timeline-section' },
-    { label: 'KVELDEN FØR', href: '#mosby-section' },
     { label: 'OVERNATTING', href: '#logistics-section' },
     { label: 'ØNSKELISTE', href: '#gift-section' },
     { label: 'SPØRSMÅL', href: '#faq-section' },
@@ -80,17 +87,17 @@ function App() {
 
       <main className="flex flex-col w-full m-0 p-0 space-y-0">
         {/* Navigation with Countdown - Sunset Gradient Header */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-3 md:py-4 transition-all duration-300 backdrop-blur-sm border-b border-antique-gold/20" style={{
-          background: 'linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(255, 140, 66, 0.4), rgba(212, 175, 55, 0.4))'
+        <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 pt-6 md:pt-6 py-3 md:py-4 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
+          background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
-           <div className="flex justify-between w-full items-center gap-2">
+           <div className="flex justify-between w-full items-center">
              <div className="flex items-center flex-shrink-0 z-10">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-6 py-1.5 md:py-2 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-xs md:text-base whitespace-nowrap"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap"
                >
                  SVAR
                </a>
@@ -132,21 +139,21 @@ function App() {
              <div className="flex items-center gap-1 md:gap-4 flex-shrink-0 z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-1.5 md:p-2 text-deep-charcoal hover:text-antique-gold marshmallow-transform"
+                 className="p-2.5 md:p-3 text-deep-charcoal hover:text-antique-gold marshmallow-transform"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={20} className="md:w-7 md:h-7" /> : <Menu size={20} className="md:w-7 md:h-7" />}
+                 {menuOpen ? <X size={24} className="md:w-8 md:h-8" /> : <Menu size={24} className="md:w-8 md:h-8" />}
                </button>
              </div>
            </div>
 
            {/* Bottom Row: GI EN GAVE knapp */}
-           <div className="flex justify-center mt-1.5 md:mt-2">
+           <div className="flex justify-center mt-3 md:mt-4">
              <a
                href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
                target="_blank"
                rel="noopener noreferrer"
-               className="bg-gradient-to-r from-[#C5A059] to-[#D4AF37] text-white px-4 md:px-6 py-1.5 md:py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 font-cinzel text-xs md:text-base whitespace-nowrap"
+               className="bg-gradient-to-r from-[#C5A059] to-[#D4AF37] text-white px-5 md:px-8 py-2 md:py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 font-cinzel text-sm md:text-lg whitespace-nowrap"
              >
                GI EN GAVE
              </a>
@@ -199,8 +206,6 @@ function App() {
         {/* Timeline */}
         <Timeline />
 
-        {/* Mosby - Kvelden før */}
-        <Mosby />
 
         {/* Logistics Cards */}
         <Logistics />

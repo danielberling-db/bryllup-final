@@ -43,7 +43,7 @@ const Church = () => {
     });
 
     tl.to(image, { y: '80px' }, 0)
-      .to(content, { opacity: 0.5, y: '-30px' }, 0);
+      .to(content, { y: '-30px' }, 0);
 
     return () => tl.kill();
   }, []);
@@ -81,26 +81,36 @@ const Church = () => {
         />
       </div>
 
-      <div ref={contentRef} className="relative z-10 backdrop-blur-[15px] bg-white/75 border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] p-6 md:p-10 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
-        <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+      <div ref={contentRef} className="relative z-10 backdrop-blur-md bg-black/20 border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] p-6 md:p-10 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
+        <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg" style={{
+          textShadow: '0 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5)'
+        }}>
           VIELSEN
         </h2>
 
-        <p className="font-montserrat italic text-gray-600 mb-4 text-lg">
+        <p className="font-montserrat italic text-white mb-4 text-lg font-semibold drop-shadow-lg" style={{
+          textShadow: '0 3px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5)'
+        }}>
           Spenningen venter i vakre Oddernes Kirke på Lund.
         </p>
 
         <div className="my-6 space-y-2">
           <p className="font-cinzel text-xl">
-            <span className="bg-gradient-to-r from-antique-gold to-[#FFD700] bg-clip-text text-transparent font-bold">
+            <span className="text-white font-bold drop-shadow-lg" style={{
+              textShadow: '0 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5)'
+            }}>
               23. Mai 2026 • Kl. 14:30
             </span>
           </p>
-          <p className="text-sm italic text-gray-500">(Dørene åpnes 14:10)</p>
+          <p className="text-sm italic text-white font-semibold drop-shadow-lg" style={{
+            textShadow: '0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.5)'
+          }}>(Dørene åpnes 14:10)</p>
         </div>
 
-        <div className="my-6 font-montserrat text-gray-700 space-y-1">
-          <p className="font-semibold">Adresse:</p>
+        <div className="my-6 font-montserrat text-white space-y-1 font-semibold drop-shadow-lg" style={{
+          textShadow: '0 3px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5)'
+        }}>
+          <p>Adresse:</p>
           <p>Jegersbergveien 2, 4630 Kristiansand S</p>
           <p className="text-sm mt-2">
             Det er gode parkeringsmuligheter på stedet,<br />så gjerne kom tidlig.

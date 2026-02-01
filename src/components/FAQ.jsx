@@ -22,12 +22,12 @@ const FAQ = () => {
     },
     {
       q: "Hvor bør vi sove, og finnes det rabatt?",
-      a: "Absolutt! Vi anbefaler Citybox i sentrum. Bruk koden 'RemineogDaniel' for hele 40% rabatt. For et rimeligere alternativ tilbyr vi overnatting i hus/sovesal (200,- natten). Se 'Logistikk'-seksjonen lenger opp for linker.",
+      a: "Absolutt! Vi anbefaler Citybox i sentrum. Bruk koden 'REMDAN30' for 30% rabatt. Se 'Logistikk'-seksjonen lenger opp for linker.",
       category: "logistics"
     },
     {
       q: "Hvordan kommer jeg meg frem / Er det parkering?",
-      a: "Det er masse gratis parkering på alle lokasjoner: Mosby (fredag), Oddernes Kirke og Festlokalet. Vi setter ikke opp fellesbuss, da de fleste kjører eller bor sentralt, men det er enkelt å ta taxi eller samkjøre.",
+      a: "Det er masse gratis parkering på alle lokasjoner: Oddernes Kirke og Festlokalet. Vi setter ikke opp fellesbuss, da de fleste kjører eller bor sentralt, men det er enkelt å ta taxi eller samkjøre.",
       category: "logistics"
     },
     {
@@ -52,11 +52,6 @@ const FAQ = () => {
       category: "ceremony"
     },
     {
-      q: "Hva skjer egentlig 'Kvelden før kvelden'?",
-      a: "Fredag kveld samles vi på Mosby (Remines barndomshjem) for en uformell 'Get-together'. Det blir enkel mat, mingling og lave skuldre. Adressen er Mosby Ringvei 56. Se kart lenger opp.",
-      category: "party"
-    },
-    {
       q: "Når starter vielsen nøyaktig?",
       a: "Selve vielsen starter 14:30 presis i Oddernes Kirke. Dørene åpnes 14:10. Vær ute i god tid for å finne plassen din.",
       category: "ceremony"
@@ -72,13 +67,8 @@ const FAQ = () => {
       category: "other"
     },
     {
-      q: "Jeg skal sove på sovesal/hus. Må jeg ha med sengetøy?",
-      a: "Ja, ta med sovepose eller sengetøy og håndkle. Det er senger/madrasser der. Det er en enkel, sosial og rimelig måte å bo på.",
-      category: "logistics"
-    },
-    {
       q: "Er det felles frokost?",
-      a: "De som bor på Citybox fikser frokost selv (den er god!). De som sover på huset/sovesal organiserer vi en enkel fellesfrokost for på søndagen.",
+      a: "De som bor på Citybox fikser frokost selv (den er god!).",
       category: "party"
     },
     {

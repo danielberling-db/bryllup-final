@@ -1,23 +1,27 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Heart, MapPin, Camera, Wine, Music, Mic2, Coffee, Sparkles, Cake, Disc3, Figma, Droplets } from 'lucide-react';
+import { MapPin, Heart, Camera, Cake, Sparkles, Wine, Music, Mic2, Coffee, Users, Sparkles as SparklesIcon, Mic2 as Mic2Icon, Cake as CakeIcon, Disc3, Figma, Music as MusicIcon } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const events = [
   { time: "10:00", title: "Sightseeing", desc: "Kristiansand sentrum for de som vil", side: "left", icon: MapPin },
-  { time: "14:30", title: "Vielse", desc: "Oddernes Kirke", side: "right", highlight: true, icon: Heart },
+  { time: "14:30", title: "Vielse i Oddernes Kirke", desc: "Hovedhendelsen", side: "right", highlight: true, icon: Heart },
   { time: "15:30", title: "Felles fotografering", desc: "Familie og venner", side: "left", icon: Camera },
-  { time: "16:30", title: "Stor FestMiddag", desc: "Taler og god mat", side: "right", highlight: true, icon: Wine },
+  { time: "16:00", title: "Kakeskjæring", desc: "Bryllupskake", side: "right", highlight: true, icon: Cake },
+  { time: "16:15", title: "Garden Party", desc: "Ute i hagen", side: "left", icon: Sparkles },
+  { time: "17:00", title: "Stor festmiddag", desc: "Taler og god mat", side: "right", highlight: true, icon: Wine },
   { time: "17:30", title: "Underholdning", desc: "Overraskelser", side: "left", icon: Music },
   { time: "18:00", title: "Taler", desc: "Ord for dagen", side: "right", icon: Mic2 },
-  { time: "19:00", title: "Kaffe og Kaker", desc: "Søtsaker", side: "left", icon: Coffee },
-  { time: "20:00", title: "Leker", desc: "Moro for alle", side: "right", icon: Sparkles },
-  { time: "21:00", title: "Kakeskjæring", desc: "Bryllupskake", side: "left", highlight: true, icon: Cake },
+  { time: "18:30", title: "Kaffetid", desc: "Kaffe og mingling", side: "left", icon: Coffee },
+  { time: "19:00", title: "Mingling", desc: "Tid til å snakke", side: "right", icon: Users },
+  { time: "20:00", title: "Leker", desc: "Moro for alle", side: "left", icon: SparklesIcon },
+  { time: "20:30", title: "Taler", desc: "Flere ord", side: "right", icon: Mic2Icon },
+  { time: "21:30", title: "Kakebordet", desc: "Søtsaker og kaker", side: "left", icon: CakeIcon },
   { time: "22:00", title: "Mer underholdning", desc: "Dans og musikk", side: "right", icon: Disc3 },
   { time: "23:00", title: "Brudedansen", desc: "Valsen", side: "left", highlight: true, icon: Figma },
-  { time: "00:00", title: "Bading", desc: "For de tøffe!", side: "right", icon: Droplets },
+  { time: "00:00", title: "Premier & Avslutning", desc: "Avslutning av festen", side: "right", highlight: true, icon: MusicIcon },
 ];
 
 const Timeline = () => {
@@ -144,7 +148,7 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 flex justify-center" data-anchor>
+                  <div className="flex-shrink-0 flex items-center justify-center" data-anchor>
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border-2 transition-all ${
                       evt.highlight
                         ? 'bg-gradient-to-br from-antique-gold to-yellow-400 border-yellow-500 shadow-antique-gold/30'
