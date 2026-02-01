@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       q: "Kan vi ta med barna?",
-      a: "Gjester kan sende en henvendelse i svarskjemaet angående å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en tid etter middag.",
+      a: "Jesus sa: 'La barna komme til meg'. Vi setter stor pris på barnas nærvær og har derfor åpnet opp for muligheten til å ta med barn til bryllupet. Gjester kan sende en henvendelse i svarskjemaet angående å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en tid etter middag.",
       category: "logistics"
     },
     {
