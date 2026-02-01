@@ -6,7 +6,7 @@ const GiftReveal = () => {
       <div className="max-w-4xl mx-auto w-full">
         <div className="bg-white rounded-3xl p-8 md:p-16 shadow-2xl border border-[#E8C4C8]">
           <h1 className="font-cinzel text-5xl md:text-8xl font-black mb-8 md:mb-12 text-center bg-gradient-to-r from-[#C5A059] to-[#D4AF37] bg-clip-text text-transparent drop-shadow-md">
-              ØNSKELISTER
+              ØNSKER
             </h1>
           
           <h2 className="font-vibes text-4xl md:text-7xl mb-6 md:mb-10 text-[#C5A059] text-center">
