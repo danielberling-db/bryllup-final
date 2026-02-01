@@ -54,19 +54,23 @@ function App() {
     { label: 'OVERNATTING', href: '#logistics-section' },
     { label: 'ØNSKELISTE', href: '#gift-section' },
     { label: 'SPØRSMÅL', href: '#faq-section' },
-    { label: 'SVAR', href: '#rsvp-section' }
+    { label: 'SVAR', href: 'https://forms.gle/g58x6q98UHBacM6z7', external: true }
   ];
 
-  const handleMenuClick = (href) => {
+  const handleMenuClick = (href, external) => {
     setMenuOpen(false);
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 100);
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else {
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
@@ -75,21 +79,30 @@ function App() {
       <ScrollGradient />
 
       <main className="flex flex-col w-full m-0 p-0 space-y-0">
-        {/* Navigation with Countdown */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-3 md:py-4 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-antique-gold/20">
+        {/* Navigation with Countdown - Sunset Gradient Header */}
+        <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-3 md:py-4 transition-all duration-300 backdrop-blur-sm border-b border-antique-gold/20" style={{
+          background: 'linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(255, 140, 66, 0.4), rgba(212, 175, 55, 0.4))'
+        }}>
            {/* Top Row: SVAR, Countdown, Menu */}
-           <div className="flex justify-between items-center gap-2">
+           <div className="flex justify-between w-full items-center gap-2">
              <div className="flex items-center flex-shrink-0 z-10">
                <a
-                 href="#rsvp-section"
+                 href="https://forms.gle/g58x6q98UHBacM6z7"
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-6 py-1.5 md:py-2 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-xs md:text-base whitespace-nowrap"
                >
                  SVAR
                </a>
              </div>
 
-             {/* Countdown - Kompakt, sentrert */}
-             <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0">
+             {/* Countdown - Klikkbar, sentrert */}
+             <a 
+               href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0 cursor-pointer"
+             >
                {[
                  { label: 'DAGER', value: timeLeft.days },
                  { label: 'TIMER', value: timeLeft.hours },
@@ -114,7 +127,7 @@ function App() {
                    </div>
                  </React.Fragment>
                ))}
-             </div>
+             </a>
 
              <div className="flex items-center gap-1 md:gap-4 flex-shrink-0 z-10">
                <button
@@ -127,10 +140,12 @@ function App() {
              </div>
            </div>
 
-           {/* Bottom Row: GI EN GAVE knapp - Kompakt på mobil */}
+           {/* Bottom Row: GI EN GAVE knapp */}
            <div className="flex justify-center mt-1.5 md:mt-2">
              <a
-               href="#gift-section"
+               href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
+               target="_blank"
+               rel="noopener noreferrer"
                className="bg-gradient-to-r from-[#C5A059] to-[#D4AF37] text-white px-4 md:px-6 py-1.5 md:py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 font-cinzel text-xs md:text-base whitespace-nowrap"
              >
                GI EN GAVE
@@ -149,7 +164,7 @@ function App() {
               {menuItems.map((item, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => handleMenuClick(item.href)}
+                    onClick={() => handleMenuClick(item.href, item.external)}
                     className="w-full text-left font-cinzel text-xl font-bold text-deep-charcoal hover:text-antique-gold marshmallow-ease py-2 border-b border-gray-200 hover:border-antique-gold"
                   >
                     {item.label}

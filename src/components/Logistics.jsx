@@ -35,19 +35,6 @@ const Logistics = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const scrollToRSVP = () => {
-    const rsvpSection = document.getElementById('rsvp-section');
-    if (rsvpSection) {
-      rsvpSection.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => {
-        const accommodationField = document.querySelector('select[name="accommodation"]');
-        if (accommodationField) {
-          accommodationField.focus();
-          accommodationField.style.animation = 'pulse 0.5s ease-in-out 3';
-        }
-      }, 1000);
-    }
-  };
 
   return (
     <section id="logistics-section" className="w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F9B89B] via-[#FFF5F0] to-[#FFFFFF]">
@@ -95,12 +82,14 @@ const Logistics = () => {
           </div>
 
           {/* SOVESAL CARD */}
-          <div
+          <a
+            href="https://forms.gle/g58x6q98UHBacM6z7"
+            target="_blank"
+            rel="noopener noreferrer"
             ref={(el) => cardsRef.current[1] = el}
-            onClick={scrollToRSVP}
             onMouseMove={(e) => handleMouseMove(1, e)}
             onMouseLeave={() => handleMouseLeave(1)}
-            className="cursor-pointer group"
+            className="cursor-pointer group block"
             style={{ transition: 'transform 0.1s ease-out' }}
           >
             <div className="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl">
@@ -123,12 +112,12 @@ const Logistics = () => {
                   Vi tilbyr rimelig overnatting for single og ungdommer! 200,- per pers/natt. Bestilles i registreringen.
                 </p>
 
-                <button className="w-full border-2 border-antique-gold text-antique-gold px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-antique-gold hover:text-white font-montserrat">
+                <div className="w-full border-2 border-antique-gold text-antique-gold px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-antique-gold hover:text-white font-montserrat text-center">
                   GÅ TIL RSVP
-                </button>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
 
           {/* AIRBNB CARD */}
           <div

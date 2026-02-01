@@ -7,7 +7,7 @@ const FAQ = () => {
   const questions = [
     {
       q: "Når må jeg svare om jeg kommer?",
-      a: "Vi trenger ditt svar innen 1. Mars 2026. Dette er viktig for at vi skal få bestilt mat og drikke til alle. Du svarer enkelt i skjemaet lenger ned på denne siden.",
+      a: "Vi trenger ditt svar innen 1. Mars 2026. Dette er viktig for at vi skal få bestilt mat og drikke til alle. Du svarer enkelt ved å klikke på 'SVAR'-knappen i headeren eller i RSVP-seksjonen.",
       category: "logistics"
     },
     {
@@ -32,7 +32,7 @@ const FAQ = () => {
     },
     {
       q: "Jeg har allergier eller diettbehov. Hva gjør jeg?",
-      a: "Ingen fare! Si ifra i RSVP-skjemaet nederst på siden. Vår fantastiske matansvarlig Elisabet sørger for at alle blir mette og glade, uansett behov.",
+      a: "Ingen fare! Si ifra i RSVP-skjemaet (klikk på 'SVAR'-knappen). Vår fantastiske matansvarlig Elisabet sørger for at alle blir mette og glade, uansett behov.",
       category: "party"
     },
     {
