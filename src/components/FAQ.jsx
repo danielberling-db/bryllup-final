@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       q: "Kan vi ta med barna?",
-      a: "Jesus sa: 'La barna komme til meg'. Vi ønsker et bryllup fylt med glede og sprell! Noen gjester er derfor invitert med barna sine (dette står i invitasjonen). Utover dette er det kun barn som er avhengig av foreldre (amming/små) som er invitert.",
+      a: "Gjester kan sende en henvendelse i svarskjemaet angående å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en tid etter middag.",
       category: "logistics"
     },
     {
@@ -32,7 +32,7 @@ const FAQ = () => {
     },
     {
       q: "Jeg har allergier eller diettbehov. Hva gjør jeg?",
-      a: "Ingen fare! Si ifra i RSVP-skjemaet (klikk på 'SVAR'-knappen). Vår fantastiske matansvarlig Elisabet sørger for at alle blir mette og glade, uansett behov.",
+      a: "Ingen fare! Si ifra i RSVP-skjemaet (klikk på 'SVAR'-knappen). Vi sørger for at alle blir mette og glade, uansett behov.",
       category: "party"
     },
     {
@@ -43,7 +43,7 @@ const FAQ = () => {
     // Hidden initially
     {
       q: "Hvem skal jeg kontakte for taler eller sprell?",
-      a: "Her er drømmelaget:\n• Taler/Toastmastere: Hans Christian & Mathias (Send dem en mail eller melding i god tid!)\n• Leker/Underholdning: Adam\n• Mat: Elisabet\n• Pynt/Estetikk: Ragnhild",
+      a: "De som ønsker å bidra med taler eller underholdning kan melde dette i svarskjemaet.",
       category: "other"
     },
     {
@@ -63,12 +63,12 @@ const FAQ = () => {
     },
     {
       q: "Jeg vil gjerne si noen ord. Er det frist?",
-      a: "Så hyggelig! Meld gjerne fra til Hans Christian eller Mathias innen 1. Mai, så de får sydd sammen et godt program. Korte og gode taler er gull!",
+      a: "Så hyggelig! Meld gjerne fra i svarskjemaet innen 1. Mai, så vi får sydd sammen et godt program. Korte og gode taler er gull!",
       category: "other"
     },
     {
       q: "Er det felles frokost?",
-      a: "De som bor på Citybox fikser frokost selv (den er god!).",
+      a: "Det blir ingen felles frokost, men vi anbefaler The Odd Bakery som ligger rett i nærheten av Citybox for en nydelig start på dagen.",
       category: "party"
     },
     {
