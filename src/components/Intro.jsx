@@ -14,18 +14,18 @@ const Intro = ({ show }) => {
       <div className="absolute inset-0 bg-white/45 backdrop-blur-3xl" />
 
       {/* Centered welcome text */}
-      <div className="relative max-w-[90vw] mx-auto px-4 text-center intro-fade-zoom">
+      <div className="relative w-full max-w-[90vw] mx-auto px-4 text-center break-words intro-fade-zoom">
         <h1
           className="
             font-cinzel font-black tracking-[0.25em] uppercase
-            text-[8vw] md:text-6xl
+            text-[clamp(1.75rem,7vw,5rem)]
             bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300
             bg-clip-text text-transparent drop-shadow-sm
           "
         >
           BRYLLUPSINVITASJON
         </h1>
-        <p className="mt-4 font-montserrat text-xs sm:text-sm md:text-base text-deep-charcoal/80 tracking-[0.25em] uppercase">
+        <p className="mt-4 font-montserrat text-[clamp(0.875rem,3vw,1.5rem)] text-deep-charcoal/80 tracking-[0.25em] uppercase">
           Svarfrist 1. mars
         </p>
       </div>
