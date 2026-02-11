@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="relative overflow-hidden">
             <img src="/aaker.jpg" alt="Remine & Daniel" className="w-full max-h-[60vh] object-cover" loading="eager" />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F2E8DA] to-transparent pointer-events-none"></div>
-          </div>
+              </div>
         </div>
       </div>
 

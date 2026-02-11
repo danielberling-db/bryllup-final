@@ -69,14 +69,14 @@ function App() {
     if (external) {
       window.open(href, '_blank', 'noopener,noreferrer');
     } else {
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 100);
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
     }
   };
 
@@ -93,15 +93,15 @@ function App() {
            {/* Top Row: SVAR, Countdown, Menu */}
            <div className="flex justify-between w-full items-center">
              <div className="flex items-center flex-shrink-0 z-10">
-               <a
+             <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap"
-               >
-                 SVAR
-               </a>
-             </div>
+             >
+               SVAR
+             </a>
+           </div>
 
              {/* Countdown - Klikkbar, sentrert */}
              <a 
@@ -110,30 +110,30 @@ function App() {
                rel="noopener noreferrer"
                className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0 cursor-pointer"
              >
-               {[
-                 { label: 'DAGER', value: timeLeft.days },
-                 { label: 'TIMER', value: timeLeft.hours },
-                 { label: 'MIN', value: timeLeft.minutes },
-                 { label: 'SEK', value: timeLeft.seconds }
-               ].map((item, index) => (
-                 <React.Fragment key={item.label}>
+             {[
+               { label: 'DAGER', value: timeLeft.days },
+               { label: 'TIMER', value: timeLeft.hours },
+               { label: 'MIN', value: timeLeft.minutes },
+               { label: 'SEK', value: timeLeft.seconds }
+             ].map((item, index) => (
+               <React.Fragment key={item.label}>
                    {index > 0 && <span className="text-[#D4AF37] font-cinzel text-xs md:text-xl font-bold mx-0.5 md:mx-1">:</span>}
                    <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded md:rounded-lg px-1.5 md:px-4 py-1 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
-                     <div 
+                   <div 
                        className="font-cinzel text-xs md:text-3xl font-black tracking-tight"
-                       style={{
-                         background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
-                         WebkitBackgroundClip: 'text',
-                         backgroundClip: 'text',
-                         color: 'transparent'
-                       }}
-                     >
-                       {String(item.value).padStart(2, '0')}
-                     </div>
-                     <div className="text-[6px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">{item.label}</div>
+                     style={{
+                       background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
+                       WebkitBackgroundClip: 'text',
+                       backgroundClip: 'text',
+                       color: 'transparent'
+                     }}
+                   >
+                     {String(item.value).padStart(2, '0')}
                    </div>
-                 </React.Fragment>
-               ))}
+                     <div className="text-[6px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">{item.label}</div>
+                 </div>
+               </React.Fragment>
+             ))}
              </a>
 
              <div className="flex items-center justify-end flex-shrink-0 z-10">
