@@ -2,7 +2,7 @@ import React from 'react';
 
 const GiftReveal = () => {
   return (
-    <section id="gift-section" className="relative w-full max-w-full m-0 flex flex-col items-center justify-center pt-32 md:pt-32 pb-12 md:pb-32 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-[#FFF5F0] to-[#FFFFFF] overflow-visible">
+    <section id="gift-section" className="relative w-full max-w-full m-0 flex flex-col items-center justify-center pt-32 md:pt-32 pb-12 md:pb-32 px-4 sm:px-6 md:px-8 bg-transparent overflow-visible">
       <div className="max-w-4xl mx-auto w-full">
         <div className="bg-white rounded-3xl p-8 md:p-16 shadow-2xl border border-[#E8C4C8]">
           <h1 className="font-cinzel text-5xl md:text-8xl font-black mb-8 md:mb-12 text-center bg-gradient-to-r from-[#C5A059] to-[#D4AF37] bg-clip-text text-transparent drop-shadow-md">

@@ -4,7 +4,7 @@ const Church = () => {
   return (
     <section
       id="church-section"
-      className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden"
+      className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-transparent overflow-hidden"
     >
       <div
         className="absolute inset-0 w-full h-full"
@@ -30,25 +30,31 @@ const Church = () => {
         />
       </div>
 
-      <div className="relative z-10 backdrop-blur-xl bg-white/20 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
-        <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-slate-900 mb-4 drop-shadow-lg">
+      <div className="relative z-10 backdrop-blur-lg bg-white/15 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
+        <h2
+          className="font-cinzel text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent"
+        >
           VIELSEN
         </h2>
 
-        <p className="font-montserrat italic text-slate-900 mb-4 text-lg font-semibold drop-shadow-lg">
+        <p
+          className="font-montserrat italic mb-4 text-lg font-semibold drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent"
+        >
           Spenningen venter i vakre Oddernes Kirke på Lund.
         </p>
 
         <div className="my-6 space-y-2">
           <p className="font-cinzel text-xl">
-            <span className="text-slate-900 font-bold drop-shadow-lg">
+            <span className="font-bold drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent">
               23. Mai 2026 • Kl. 14:30
             </span>
           </p>
-          <p className="text-sm italic text-slate-900 font-semibold drop-shadow-lg">(Dørene åpnes 14:10)</p>
+          <p className="text-sm italic font-semibold drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent">
+            (Dørene åpnes 14:10)
+          </p>
         </div>
 
-        <div className="my-6 font-montserrat text-slate-900 space-y-1 font-semibold drop-shadow-lg">
+        <div className="my-6 font-montserrat space-y-1 font-semibold drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent">
           <p>Adresse:</p>
           <p>Jegersbergveien 2, 4630 Kristiansand S</p>
           <p className="text-sm mt-2">

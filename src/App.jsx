@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showIntro, setShowIntro] = useState(true);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -44,6 +45,14 @@ function App() {
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  // Intro overlay timer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 3500);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -85,7 +94,15 @@ function App() {
       {/* Kromatisk Tidsreise - Dynamic Scroll Gradient */}
       <ScrollGradient />
 
-      <main className="flex flex-col w-full max-w-full m-0 p-0 space-y-0 overflow-x-hidden">
+      {/* Soft welcome overlay */}
+      <Intro show={showIntro} />
+      <main
+        className={`
+          flex flex-col w-full max-w-full m-0 p-0 space-y-0 overflow-x-hidden
+          transition-opacity duration-700 ease-out
+          ${showIntro ? 'opacity-0' : 'opacity-100'}
+        `}
+      >
         {/* Navigation with Countdown - Sunset Gradient Header */}
         <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 pt-6 md:pt-6 py-3 md:py-4 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
@@ -93,15 +110,16 @@ function App() {
            {/* Top Row: SVAR, Countdown, Menu */}
            <div className="flex justify-between w-full items-center">
              <div className="flex items-center flex-shrink-0 z-10">
-             <a
+               <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap"
-             >
-               SVAR
-             </a>
-           </div>
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
+               >
+                 <span>SVAR</span>
+                 <span className="text-[10px] font-normal opacity-90">(1. mars)</span>
+               </a>
+             </div>
 
              {/* Countdown - Klikkbar, sentrert */}
              <a 
@@ -193,9 +211,6 @@ function App() {
 
         {/* Hero Section */}
         <Hero />
-
-        {/* Intro - The Spark */}
-        <Intro />
 
         {/* Salt & Pepper Interlude */}
         <SaltPepper />

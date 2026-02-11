@@ -32,7 +32,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-[#FFFFFF] text-center overflow-hidden">
+    <footer className="relative w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 bg-transparent text-center overflow-hidden">
       {/* Decorative Gradient Orbs */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
@@ -109,9 +109,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <p className="text-deep-charcoal/50 text-xs font-montserrat tracking-wider">
-          REMINE & DANIEL 2026
-        </p>
+        <div className="mt-10 flex flex-col items-center gap-2">
+          <p className="text-deep-charcoal/50 text-xs font-montserrat tracking-wider">
+            REMINE & DANIEL 2026
+          </p>
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#FDE7C5]/80 via-[#F9CBA3]/80 to-[#F7B6A8]/80 backdrop-blur-md shadow-sm border border-white/40">
+            <span className="font-montserrat text-[10px] tracking-[0.2em] uppercase text-white">
+              © Remine.no
+            </span>
+          </div>
+        </div>
       </div>
     </footer>
   );

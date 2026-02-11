@@ -111,7 +111,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq-section" className="w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-[#FFFFFF] overflow-x-hidden">
+    <section id="faq-section" className="w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 bg-transparent overflow-x-hidden">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-12 bg-gradient-to-r from-antique-gold to-[#FFD700] bg-clip-text text-transparent">
           Spørsmål & Svar

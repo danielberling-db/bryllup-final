@@ -17,7 +17,7 @@ const SaltPepper = () => {
   }, []);
 
   return (
-    <section className="relative w-full max-w-full m-0 flex flex-col items-center justify-center pt-0 pb-12 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#F2E8DA] to-[#EBC7C7] overflow-hidden">
+    <section className="relative w-full max-w-full m-0 flex flex-col items-center justify-center pt-0 pb-12 md:py-32 px-4 sm:px-6 bg-transparent overflow-hidden">
 
       <div className="relative z-10 flex flex-col items-center">
         <div

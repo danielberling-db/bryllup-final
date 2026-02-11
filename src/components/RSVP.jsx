@@ -2,7 +2,7 @@ import React from 'react';
 
 const RSVP = () => {
   return (
-    <section id="rsvp-section" className="w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 overflow-hidden relative">
+    <section id="rsvp-section" className="w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 overflow-hidden relative bg-transparent">
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-[#Fdfbf7] shadow-2xl rounded-lg p-8 md:p-12 border border-gray-200" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/watercolor.png")'}}>
           <div className="mb-8">
