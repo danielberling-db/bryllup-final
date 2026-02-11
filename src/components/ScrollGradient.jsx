@@ -4,11 +4,12 @@ const ScrollGradient = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    // Keep a lightweight listener in case we later want subtle parallax or effects.
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight - windowHeight;
       const scrolled = window.scrollY;
-      const progress = scrolled / documentHeight;
+      const progress = documentHeight > 0 ? scrolled / documentHeight : 0;
       setScrollProgress(progress);
     };
 
@@ -18,22 +19,16 @@ const ScrollGradient = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getGradient = () => {
-    if (scrollProgress < 0.25) {
-      const localProgress = scrollProgress / 0.25;
-      return `linear-gradient(to bottom,
-        rgb(224, 247, 250) 0%,
-        rgb(255, 248, 225) 100%)`;
-    } else if (scrollProgress < 0.75) {
-      return 'rgb(255, 248, 225)';
-    } else {
-      const localProgress = (scrollProgress - 0.75) / 0.25;
-      return `linear-gradient(to bottom,
-        rgb(47, 79, 79) 0%,
-        rgb(183, 110, 121) 50%,
-        rgb(233, 150, 122) 100%)`;
-    }
-  };
+  // Single continuous gradient from soft sunrise at top to warm sunset at bottom
+  const getGradient = () =>
+    `linear-gradient(
+      to bottom,
+      #FFF8E9 0%,
+      #FFE6C7 25%,
+      #FDD2B0 50%,
+      #F7B6A8 75%,
+      #E48A8C 100%
+    )`;
 
   return (
     <div

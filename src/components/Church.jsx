@@ -30,7 +30,7 @@ const Church = () => {
         />
       </div>
 
-      <div className="relative z-10 backdrop-blur-lg bg-white/15 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
+      <div className="relative z-10 backdrop-blur-md bg-slate-900/18 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
         <h2
           className="font-cinzel text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent"
         >
@@ -56,7 +56,7 @@ const Church = () => {
 
         <div className="my-6 font-montserrat space-y-1 font-semibold drop-shadow-lg bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent">
           <p>Adresse:</p>
-          <p>Jegersbergveien 2, 4630 Kristiansand S</p>
+          <p>Jegersbergveien 2, 4630 Kristiansand</p>
           <p className="text-sm mt-2">
             Det er gode parkeringsmuligheter på stedet,<br />så gjerne kom tidlig.
           </p>

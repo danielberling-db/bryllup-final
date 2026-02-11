@@ -104,7 +104,7 @@ function App() {
         `}
       >
         {/* Navigation with Countdown - Sunset Gradient Header */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-10 pt-6 md:pt-6 py-3 md:py-4 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
+        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-4 md:pt-4 py-2 md:py-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
@@ -114,7 +114,7 @@ function App() {
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3 md:py-3 rounded-full font-bold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-4 md:px-6 py-2.5 md:py-2.5 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-xs md:text-sm whitespace-nowrap flex flex-col items-center leading-tight"
                >
                  <span>SVAR</span>
                  <span className="text-[10px] font-normal opacity-90">(1. mars)</span>
@@ -138,7 +138,7 @@ function App() {
                    {index > 0 && <span className="text-[#D4AF37] font-cinzel text-xs md:text-xl font-bold mx-0.5 md:mx-1">:</span>}
                    <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded md:rounded-lg px-1.5 md:px-4 py-1 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
                    <div 
-                       className="font-cinzel text-xs md:text-3xl font-black tracking-tight"
+                       className="font-cinzel text-sm md:text-4xl font-black tracking-tight"
                      style={{
                        background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
                        WebkitBackgroundClip: 'text',

@@ -14,11 +14,11 @@ const Intro = ({ show }) => {
       <div className="absolute inset-0 bg-white/45 backdrop-blur-3xl" />
 
       {/* Centered welcome text */}
-      <div className="relative max-w-3xl mx-auto px-8 text-center intro-fade-zoom">
+      <div className="relative max-w-3xl mx-auto px-6 text-center intro-fade-zoom">
         <h1
           className="
             font-cinzel font-black tracking-[0.25em] uppercase
-            text-3xl sm:text-4xl md:text-5xl
+            text-[clamp(1.6rem,7vw,3.5rem)]
             bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300
             bg-clip-text text-transparent drop-shadow-sm
           "
