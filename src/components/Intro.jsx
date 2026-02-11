@@ -17,13 +17,23 @@ const Intro = ({ show }) => {
       <div className="relative w-full max-w-[90vw] mx-auto px-4 text-center break-words intro-fade-zoom">
         <h1
           className="
-            font-cinzel font-black tracking-[0.25em] uppercase
-            text-[clamp(1.75rem,7vw,5rem)]
+            font-cinzel font-black tracking-widest uppercase leading-tight
+            text-[clamp(2rem,10vw,5rem)]
             bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300
             bg-clip-text text-transparent drop-shadow-sm
           "
         >
-          BRYLLUPSINVITASJON
+          {/* Mobil: to linjer */}
+          <span className="block md:hidden">
+            BRYLLUPS
+          </span>
+          <span className="block md:hidden">
+            INVITASJON
+          </span>
+          {/* Tablet/PC: én linje */}
+          <span className="hidden md:inline">
+            BRYLLUPSINVITASJON
+          </span>
         </h1>
         <p className="mt-4 font-montserrat text-[clamp(0.875rem,3vw,1.5rem)] text-deep-charcoal/80 tracking-[0.25em] uppercase">
           Svarfrist 1. mars

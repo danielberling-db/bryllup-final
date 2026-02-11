@@ -30,31 +30,31 @@ const Church = () => {
         />
       </div>
 
-      <div className="relative z-10 backdrop-blur-md bg-white/15 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
+      <div className="relative z-10 backdrop-blur-sm bg-white/10 border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] p-8 md:p-12 rounded-lg max-w-sm md:max-w-md text-center mx-auto transition-all duration-300">
         <h2
-          className="font-cinzel text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_3px_3px_rgba(0,0,0,1)]"
+          className="font-cinzel text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,1)]"
         >
           VIELSEN
         </h2>
 
         <p
-          className="font-montserrat italic mb-4 text-lg font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_3px_3px_rgba(0,0,0,1)]"
+          className="font-montserrat italic mb-4 text-lg font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,1)]"
         >
           Spenningen venter i vakre Oddernes Kirke på Lund.
         </p>
 
         <div className="my-6 space-y-2">
           <p className="font-cinzel text-xl">
-            <span className="font-bold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">
+            <span className="font-bold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,1)]">
               23. Mai 2026 • Kl. 14:30
             </span>
           </p>
-          <p className="text-sm italic font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">
+          <p className="text-sm italic font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,1)]">
             (Dørene åpnes 14:10)
           </p>
         </div>
 
-        <div className="my-6 font-montserrat space-y-1 font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">
+        <div className="my-6 font-montserrat space-y-1 font-semibold bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,1)]">
           <p>Adresse:</p>
           <p>Jegersbergveien 2, 4630 Kristiansand</p>
           <p className="text-sm mt-2">
