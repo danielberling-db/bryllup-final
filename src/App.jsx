@@ -76,7 +76,10 @@ function App() {
   const handleMenuClick = (href, external) => {
     setMenuOpen(false);
     if (external) {
-      window.open(href, '_blank', 'noopener,noreferrer');
+      const newWindow = window.open(href, '_blank');
+      if (newWindow) {
+        newWindow.opener = null;
+      }
     } else {
     setTimeout(() => {
       const element = document.querySelector(href);

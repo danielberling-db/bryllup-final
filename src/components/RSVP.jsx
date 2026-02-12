@@ -23,6 +23,7 @@ const RSVP = () => {
 
           <div className="mb-8">
             <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Fra: Remine & Daniel</p>
+          </div>
 
           {/* Hovedmotiv-bilde over "Kommer du?" */}
           <div className="mb-6 flex justify-center">

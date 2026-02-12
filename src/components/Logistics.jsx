@@ -6,14 +6,20 @@ const Logistics = () => {
   const handleCityboxClick = async () => {
     try {
       await navigator.clipboard.writeText('REMDAN30');
-    setCopied(true);
-    setTimeout(() => {
-      window.open('https://citybox.no', '_blank');
-    }, 500);
-    setTimeout(() => setCopied(false), 2000);
+      setCopied(true);
+      setTimeout(() => {
+        const win = window.open('https://citybox.no', '_blank');
+        if (win) {
+          win.opener = null;
+        }
+      }, 500);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
-      window.open('https://citybox.no', '_blank');
+      const win = window.open('https://citybox.no', '_blank');
+      if (win) {
+        win.opener = null;
+      }
     }
   };
 
