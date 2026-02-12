@@ -151,7 +151,7 @@ const Timeline = () => {
 
         <svg
           ref={svgRef}
-          className="absolute top-32 left-4 md:left-1/2 md:-translate-x-1/2 w-px md:w-2 h-[120%] z-0 overflow-visible"
+          className="absolute top-32 left-1/2 -translate-x-1/2 w-1 md:w-2 h-[120%] z-0 overflow-visible"
           viewBox="0 0 100 3000"
           preserveAspectRatio="none"
           style={{ pointerEvents: 'none' }}
@@ -178,14 +178,15 @@ const Timeline = () => {
               <div
                 key={i}
                 data-timeline-item
-                className="relative w-full px-4 sm:px-6"
+                className="relative w-full"
               >
                 <div
                   className={`
                     w-full flex flex-col md:flex-row ${isLeft ? 'md:flex-row-reverse' : ''}
-                    items-center md:items-stretch gap-6 md:gap-8 relative z-10
+                    items-stretch md:items-center gap-6 md:gap-8 relative z-10 px-4 sm:px-6
                   `}
                 >
+                  {/* Tekstboks – full bredde på mobil */}
                   <div className="flex-1 w-full" data-text-box>
                     <div className={`w-full p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-md mx-auto ${
                       evt.highlight
@@ -204,7 +205,8 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 flex items-center justify-center mt-4 md:mt-0" data-anchor>
+                  {/* Ikon-anker – ligger over tidslinjen i midten */}
+                  <div className="flex-shrink-0 flex items-center justify-center" data-anchor>
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border-2 transition-all ${
                       evt.highlight
                         ? 'bg-gradient-to-br from-antique-gold to-yellow-400 border-yellow-500 shadow-antique-gold/30'
@@ -214,16 +216,16 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  {/* Memory image: watermark-style on mobile, side image on større skjermer */}
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40 -z-10 md:static md:pointer-events-auto md:flex-1 md:flex md:justify-center md:items-center md:opacity-100 md:z-0">
+                  {/* Memory-bilde – egen rad på mobil, venstre/høyre justert */}
+                  <div className="flex-1 w-full flex justify-start md:justify-start">
                     <div
                       data-memory-image
                       className={`
                         relative
-                        ${isLeft ? 'md:ml-auto md:justify-end' : 'md:mr-auto md:justify-start'}
+                        ${isLeft ? 'self-start md:self-auto' : 'self-end md:self-auto'}
                       `}
                     >
-                      <div className="w-28 h-28 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
+                      <div className="w-24 h-24 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
                         <img
                           src={imageSrc}
                           alt=""
