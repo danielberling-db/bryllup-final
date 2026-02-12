@@ -104,7 +104,7 @@ function App() {
         `}
       >
         {/* Navigation with Countdown - Sunset Gradient Header */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-4 md:pt-4 py-2 md:py-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
+        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-5 md:pt-4 py-3 md:py-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
@@ -114,7 +114,7 @@ function App() {
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-4 md:px-6 py-2.5 md:py-2.5 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-xs md:text-sm whitespace-nowrap flex flex-col items-center leading-tight"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-7 py-3 md:py-3 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-base whitespace-nowrap flex flex-col items-center leading-tight"
                >
                  <span>SVAR</span>
                  <span className="text-[10px] font-normal opacity-90">(1. mars)</span>
@@ -157,10 +157,10 @@ function App() {
              <div className="flex items-center justify-end flex-shrink-0 z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-3 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-3.5 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={36} className="md:w-14 md:h-14" /> : <Menu size={36} className="md:w-14 md:h-14" />}
+                 {menuOpen ? <X size={40} className="md:w-14 md:h-14" /> : <Menu size={40} className="md:w-14 md:h-14" />}
                </button>
              </div>
            </div>
@@ -178,13 +178,21 @@ function App() {
            </div>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile / Desktop Menu Overlay */}
         <div
-          className={`fixed top-0 right-0 h-screen w-full md:w-96 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
+          className={`fixed inset-0 md:top-0 md:right-0 md:bottom-0 md:left-auto h-screen w-full md:w-[27vw] bg-gradient-to-b from-[#FFF8E9]/95 via-[#FDD2B0]/95 to-[#E48A8C]/95 shadow-2xl z-[100] transform transition-transform duration-300 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="pt-24 px-8">
+          <div className="relative h-full pt-24 px-8">
+            {/* Close button aligned with header burger position */}
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="absolute top-4 right-4 text-antique-gold hover:text-yellow-500 marshmallow-transform p-2"
+              aria-label="Lukk meny"
+            >
+              <X size={32} />
+            </button>
             <ul className="space-y-6">
               {menuItems.map((item, index) => (
                 <li key={index}>

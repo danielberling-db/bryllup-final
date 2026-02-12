@@ -25,6 +25,19 @@ const events = [
   { time: "00:00", title: "Premier & Avslutning", desc: "Kvelden rundes av med premiering", side: "left", highlight: true, icon: MusicIcon },
 ];
 
+const memoryImages = [
+  '/hero.jpg',
+  '/aaker.jpg',
+  '/kiss.jpg',
+  '/kirke.jpg',
+  '/saltpepper.jpg',
+  '/citybox.jpg',
+  '/hands.jpg',
+  '/ring.jpg',
+  '/bunad.jpg',
+  '/leken.jpg'
+];
+
 const Timeline = () => {
   const svgRef = useRef(null);
   const containerRef = useRef(null);
@@ -88,6 +101,35 @@ const Timeline = () => {
           }
         );
       }
+
+      const memoryEl = item.querySelector('[data-memory-image]');
+      if (memoryEl) {
+        gsap.fromTo(
+          memoryEl,
+          { scale: 0, opacity: 0, y: events[i].side === 'left' ? 16 : -16 },
+          {
+            scale: 1,
+            opacity: 0.7,
+            y: events[i].side === 'left' ? -4 : 4,
+            duration: 0.9,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 70%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+
+        // Subtle floating loop
+        gsap.to(memoryEl, {
+          y: '+=8',
+          duration: 4,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+      }
     });
 
     return () => {
@@ -127,10 +169,14 @@ const Timeline = () => {
           {events.map((evt, i) => {
             const IconComponent = evt.icon;
             const isLeft = evt.side === 'left';
+            const imgIndex = i % memoryImages.length;
+            const prevImgIndex = i === 0 ? -1 : (i - 1) % memoryImages.length;
+            const safeIndex = imgIndex === prevImgIndex ? (imgIndex + 3) % memoryImages.length : imgIndex;
+            const imageSrc = memoryImages[safeIndex];
 
             return (
               <div key={i} data-timeline-item className="relative flex items-center">
-                <div className={`w-full flex ${isLeft ? 'flex-row-reverse' : ''} items-center gap-8`}>
+                <div className={`w-full flex ${isLeft ? 'flex-row-reverse' : ''} items-center gap-8 relative z-10`}>
                   <div className="flex-1" data-text-box>
                     <div className={`p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-sm ${
                       evt.highlight
@@ -159,7 +205,25 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  <div className="flex-1" />
+                  {/* Memory image on the opposite side of the text */}
+                  <div className="flex-1 flex justify-center md:justify-start">
+                    <div
+                      data-memory-image
+                      className={`
+                        relative
+                        ${isLeft ? 'md:justify-end ml-auto' : 'md:justify-start mr-auto'}
+                      `}
+                    >
+                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
+                        <img
+                          src={imageSrc}
+                          alt=""
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

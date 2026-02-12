@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       q: "Kan vi ta med barna?",
-      a: "Jesus sa: 'La barna komme til meg'. Vi setter stor pris på barnas nærvær og har derfor åpnet opp for muligheten til å ta med barn til bryllupet. Gjester kan sende en henvendelse i svarskjemaet angående å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en tid etter middag.",
+      a: "Jesus sa: 'La barna komme til meg'. Vi setter stor pris på barnas nærvær og har derfor åpnet opp for muligheten til å ta med barn til bryllupet. Gjester kan sende en henvendelse i svarskjemaet 'under spørsmål' om å ta med barn, men vi ønsker fortrinnsvis at de blir hentet eller får barnepass en passende tid mellom middag og dessert.",
       category: "logistics"
     },
     {
@@ -37,7 +37,7 @@ const FAQ = () => {
     },
     {
       q: "Hva ønsker dere dere?",
-      a: "Vi har opprettet en ønskeliste. Du finner den store, glitrende 'Gave-knappen' lenger opp på siden, eller du kan trykke her for å gå til ønskelisten.",
+      a: "Vi har opprettet en ønskeliste. For enkelhetens skyld, ønsker vi oss to gaver. Du kan gi en pengesum enten 'Til vårt nye hjem' eller 'Til bryllupsreise'. Du finner den store, glitrende 'Gave-knappen' lenger opp på siden, eller trykk øverst på 'Gi en gave'.",
       category: "other"
     },
     // Hidden initially
@@ -93,7 +93,7 @@ const FAQ = () => {
     },
     {
       q: "Er det noen vi kan kontakte ved spørsmål?",
-      a: "Ja – ta gjerne kontakt med Daniel på 47361573 eller daniel.berling@hotmail.com dersom du har spørsmål om dagen, overnatting eller annet praktisk.",
+      a: "Ja – Vi ønsker at du stiller spørsmål direkte i svarskjema. Om det haster ta gjerne kontakt med Daniel på 47361573 eller daniel.berling@hotmail.com dersom du har spørsmål om dagen, overnatting eller annet praktisk.",
       category: "other"
     }
   ];

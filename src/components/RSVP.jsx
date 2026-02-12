@@ -7,9 +7,20 @@ const RSVP = () => {
         <div className="bg-[#Fdfbf7] shadow-2xl rounded-lg p-8 md:p-12 border border-gray-200" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/watercolor.png")'}}>
           <div className="mb-8">
             <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Til Remine & Daniel</p>
-            <div className="inline-block w-32 h-32 rounded-full border-4 border-deep-charcoal opacity-40 flex items-center justify-center -rotate-12 mb-6">
-              <span className="text-sm font-bold text-center">ODDERNES KIRKE<br/>23.05.2026</span>
-             </div>
+            <div className="relative inline-block w-32 h-32 mb-6">
+              {/* Hero-bilde som grafitt-rødt stempel bak teksten */}
+              <img
+                src="/hero.jpg"
+                alt="Stempelbilde"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 rotate-12 z-[-1]"
+              />
+              <div className="w-full h-full rounded-full border-4 border-deep-charcoal opacity-90 flex items-center justify-center bg-white/60">
+                <span className="text-sm font-bold text-center text-deep-charcoal drop-shadow-[0_2px_2px_rgba(255,255,255,0.9)]">
+                  ODDERNES KIRKE<br/>23.05.2026
+                </span>
+              </div>
+            </div>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-cinzel font-bold text-antique-gold mb-8">KOMMER DU?</h2>
