@@ -6,7 +6,7 @@ const Logistics = () => {
   const handleCityboxClick = async () => {
     try {
       await navigator.clipboard.writeText('REMDAN30');
-      setCopied(true);
+    setCopied(true);
       setTimeout(() => {
         const win = window.open('https://citybox.no', '_blank');
         if (win) {
@@ -19,7 +19,7 @@ const Logistics = () => {
       const win = window.open('https://citybox.no', '_blank');
       if (win) {
         win.opener = null;
-      }
+        }
     }
   };
 

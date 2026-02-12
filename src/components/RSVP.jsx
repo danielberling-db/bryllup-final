@@ -15,7 +15,7 @@ const RSVP = () => {
                 className="w-full h-full object-cover opacity-60"
                 style={{ filter: 'grayscale(100%) contrast(1.25)', mixBlendMode: 'multiply' }}
               />
-            </div>
+             </div>
             <span className="text-[10px] md:text-xs font-montserrat font-semibold tracking-widest uppercase text-deep-charcoal drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
               ODDERNES KIRKE<br />23.05.2026
             </span>
@@ -23,7 +23,7 @@ const RSVP = () => {
 
           <div className="mb-8">
             <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Fra: Remine & Daniel</p>
-          </div>
+                </div>
 
           {/* Hovedmotiv-bilde over "Kommer du?" */}
           <div className="mb-6 flex justify-center">
@@ -33,9 +33,9 @@ const RSVP = () => {
                 alt="Bryllupsdetalj"
                 loading="lazy"
                 className="w-full h-full object-cover aspect-video"
-              />
-            </div>
-          </div>
+                       />
+                   </div>
+                </div>
 
           <h2 className="text-3xl md:text-4xl font-cinzel font-bold text-antique-gold mb-8">KOMMER DU?</h2>
           

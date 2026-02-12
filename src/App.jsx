@@ -8,7 +8,7 @@ import SaltPepper from './components/SaltPepper';
 import Church from './components/Church';
 import Timeline from './components/Timeline';
 import Logistics from './components/Logistics';
-import GiftReveal from './components/GiftReveal';
+import GiftRegistry from './components/GiftRegistry';
 import FAQ from './components/FAQ';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
@@ -53,6 +53,25 @@ function App() {
       setShowIntro(false);
     }, 3500);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Direct link to /gave - scroll to gift section after intro
+  useEffect(() => {
+    const checkDirectLink = () => {
+      const path = window.location.pathname;
+      if (path === '/gave' || path === '/gave/') {
+        // Wait for intro to finish, then scroll
+        const scrollTimer = setTimeout(() => {
+          const element = document.querySelector('#gaver');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 3600); // After intro animation (3500ms + 100ms buffer)
+        return () => clearTimeout(scrollTimer);
+      }
+    };
+    
+    checkDirectLink();
   }, []);
 
   useEffect(() => {
@@ -107,29 +126,29 @@ function App() {
         `}
       >
         {/* Navigation with Countdown - Sunset Gradient Header */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-5 md:pt-4 py-3 md:py-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
+        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-5 md:pt-4 pb-3 md:pb-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
-           <div className="flex justify-between w-full items-center py-1">
-             <div className="flex items-center flex-shrink-0 z-10">
+           <div className="flex justify-between w-full items-center relative">
+             <div className="flex items-center flex-shrink-0 z-10 ml-2 md:ml-0">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-7 py-3 md:py-3 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-base whitespace-nowrap flex flex-col items-center leading-tight"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-4 md:px-7 py-3 md:py-3 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-xs md:text-base whitespace-nowrap flex flex-col items-center leading-tight"
                >
                  <span>SVAR</span>
-                 <span className="text-[10px] font-normal opacity-90">(1. mars)</span>
+                 <span className="text-[8px] md:text-[10px] font-normal opacity-90">(1. mars)</span>
                </a>
              </div>
 
-             {/* Countdown - Klikkbar, sentrert */}
+             {/* Countdown - Klikkbar, sentrert, DOMINERENDE på mobil */}
              <a 
                href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
                target="_blank"
                rel="noopener noreferrer"
-               className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0 cursor-pointer"
+               className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-1 md:gap-3 z-0 cursor-pointer"
              >
              {[
                { label: 'DAGER', value: timeLeft.days },
@@ -138,10 +157,10 @@ function App() {
                { label: 'SEK', value: timeLeft.seconds }
              ].map((item, index) => (
                <React.Fragment key={item.label}>
-                   {index > 0 && <span className="text-[#D4AF37] font-cinzel text-xs md:text-xl font-bold mx-0.5 md:mx-1">:</span>}
-                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded md:rounded-lg px-1.5 md:px-4 py-1 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+                   {index > 0 && <span className="text-[#D4AF37] font-cinzel text-lg md:text-xl font-bold mx-0.5 md:mx-1">:</span>}
+                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded-lg px-2 md:px-4 py-2 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
                    <div 
-                       className="font-cinzel text-sm md:text-4xl font-black tracking-tight"
+                       className="font-cinzel text-2xl md:text-4xl font-black tracking-tight"
                      style={{
                        background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
                        WebkitBackgroundClip: 'text',
@@ -151,19 +170,19 @@ function App() {
                    >
                      {String(item.value).padStart(2, '0')}
                    </div>
-                     <div className="text-[6px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">{item.label}</div>
+                     <div className="text-[8px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">{item.label}</div>
                  </div>
                </React.Fragment>
              ))}
              </a>
 
-             <div className="flex items-center justify-end flex-shrink-0 z-10">
+             <div className="flex items-center justify-end flex-shrink-0 z-10 mr-2 md:mr-0">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-3.5 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-3 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={40} className="md:w-14 md:h-14" /> : <Menu size={40} className="md:w-14 md:h-14" />}
+                 {menuOpen ? <X size={32} className="md:w-14 md:h-14" /> : <Menu size={32} className="md:w-14 md:h-14" />}
                </button>
              </div>
            </div>
@@ -171,9 +190,14 @@ function App() {
            {/* Bottom Row: GI EN GAVE knapp */}
            <div className="flex justify-center mt-3 md:mt-4">
              <a
-               href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
-               target="_blank"
-               rel="noopener noreferrer"
+               href="#gaver"
+               onClick={(e) => {
+                 e.preventDefault();
+                 const element = document.querySelector('#gaver');
+                 if (element) {
+                   element.scrollIntoView({ behavior: 'smooth' });
+                 }
+               }}
                className="bg-gradient-to-r from-[#C5A059] to-[#D4AF37] text-white px-5 md:px-8 py-2 md:py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 font-cinzel text-sm md:text-lg whitespace-nowrap"
              >
                GI EN GAVE
@@ -236,8 +260,8 @@ function App() {
         {/* Logistics Cards */}
         <Logistics />
 
-        {/* Gift Reveal (3D) */}
-        <GiftReveal />
+        {/* Gift Registry */}
+        <GiftRegistry />
 
         {/* FAQ Section */}
         <FAQ />
