@@ -151,7 +151,7 @@ const Timeline = () => {
 
         <svg
           ref={svgRef}
-          className="absolute top-32 left-1/2 -translate-x-1/2 w-1 md:w-2 h-[120%] z-0 overflow-visible"
+          className="absolute top-32 left-4 md:left-1/2 md:-translate-x-1/2 w-px md:w-2 h-[120%] z-0 overflow-visible"
           viewBox="0 0 100 3000"
           preserveAspectRatio="none"
           style={{ pointerEvents: 'none' }}
@@ -165,7 +165,7 @@ const Timeline = () => {
           />
         </svg>
 
-        <div className="relative z-10 space-y-32">
+        <div className="relative z-10 space-y-24 md:space-y-32">
           {events.map((evt, i) => {
             const IconComponent = evt.icon;
             const isLeft = evt.side === 'left';
@@ -175,10 +175,19 @@ const Timeline = () => {
             const imageSrc = memoryImages[safeIndex];
 
             return (
-              <div key={i} data-timeline-item className="relative flex items-center">
-                <div className={`w-full flex ${isLeft ? 'flex-row-reverse' : ''} items-center gap-8 relative z-10`}>
-                  <div className="flex-1" data-text-box>
-                    <div className={`p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-sm ${
+              <div
+                key={i}
+                data-timeline-item
+                className="relative w-full px-4 sm:px-6"
+              >
+                <div
+                  className={`
+                    w-full flex flex-col md:flex-row ${isLeft ? 'md:flex-row-reverse' : ''}
+                    items-center md:items-stretch gap-6 md:gap-8 relative z-10
+                  `}
+                >
+                  <div className="flex-1 w-full" data-text-box>
+                    <div className={`w-full p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-md mx-auto ${
                       evt.highlight
                         ? 'bg-white/85 border-antique-gold/40 ring-2 ring-antique-gold/20'
                         : 'bg-white/70 border-white/40'
@@ -195,7 +204,7 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 flex items-center justify-center" data-anchor>
+                  <div className="flex-shrink-0 flex items-center justify-center mt-4 md:mt-0" data-anchor>
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border-2 transition-all ${
                       evt.highlight
                         ? 'bg-gradient-to-br from-antique-gold to-yellow-400 border-yellow-500 shadow-antique-gold/30'
@@ -205,16 +214,16 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  {/* Memory image on the opposite side of the text */}
-                  <div className="flex-1 flex justify-center md:justify-start">
+                  {/* Memory image: watermark-style on mobile, side image on større skjermer */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40 -z-10 md:static md:pointer-events-auto md:flex-1 md:flex md:justify-center md:items-center md:opacity-100 md:z-0">
                     <div
                       data-memory-image
                       className={`
                         relative
-                        ${isLeft ? 'md:justify-end ml-auto' : 'md:justify-start mr-auto'}
+                        ${isLeft ? 'md:ml-auto md:justify-end' : 'md:mr-auto md:justify-start'}
                       `}
                     >
-                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
+                      <div className="w-28 h-28 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
                         <img
                           src={imageSrc}
                           alt=""

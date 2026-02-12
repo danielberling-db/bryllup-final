@@ -18,7 +18,7 @@ const Intro = ({ show }) => {
         <h1
           className="
             font-cinzel font-black tracking-widest uppercase leading-tight
-            text-[clamp(2rem,10vw,5rem)]
+            text-[clamp(1.5rem,8vw,4rem)]
             bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300
             bg-clip-text text-transparent drop-shadow-sm
           "
