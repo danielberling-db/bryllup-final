@@ -165,7 +165,7 @@ const Timeline = () => {
           />
         </svg>
 
-        <div className="relative z-10 space-y-24 md:space-y-32">
+        <div className="relative z-10 space-y-32">
           {events.map((evt, i) => {
             const IconComponent = evt.icon;
             const isLeft = evt.side === 'left';
@@ -175,20 +175,15 @@ const Timeline = () => {
             const imageSrc = memoryImages[safeIndex];
 
             return (
-              <div
-                key={i}
-                data-timeline-item
-                className="relative w-full"
-              >
+              <div key={i} data-timeline-item className="relative flex w-full items-center">
                 <div
                   className={`
                     w-full flex flex-col md:flex-row ${isLeft ? 'md:flex-row-reverse' : ''}
-                    items-stretch md:items-center gap-6 md:gap-8 relative z-10 px-4 sm:px-6
+                    items-center md:items-center gap-6 md:gap-8 relative z-10
                   `}
                 >
-                  {/* Tekstboks – full bredde på mobil */}
-                  <div className="flex-1 w-full" data-text-box>
-                    <div className={`w-full p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-md mx-auto ${
+                  <div className="flex-1 w-full px-4 sm:px-6 md:px-0" data-text-box>
+                    <div className={`p-6 rounded-xl backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer max-w-sm ${
                       evt.highlight
                         ? 'bg-white/85 border-antique-gold/40 ring-2 ring-antique-gold/20'
                         : 'bg-white/70 border-white/40'
@@ -205,8 +200,7 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  {/* Ikon-anker – ligger over tidslinjen i midten */}
-                  <div className="flex-shrink-0 flex items-center justify-center" data-anchor>
+                  <div className="flex-shrink-0 flex items-center justify-center my-4 md:my-0" data-anchor>
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border-2 transition-all ${
                       evt.highlight
                         ? 'bg-gradient-to-br from-antique-gold to-yellow-400 border-yellow-500 shadow-antique-gold/30'
@@ -216,16 +210,23 @@ const Timeline = () => {
                     </div>
                   </div>
 
-                  {/* Memory-bilde – egen rad på mobil, venstre/høyre justert */}
-                  <div className="flex-1 w-full flex justify-start md:justify-start">
+                  {/* Memory image på motsatt side av teksten */}
+                  <div
+                    className={`
+                      flex-1 w-full flex
+                      ${isLeft ? 'justify-end' : 'justify-start'}
+                      md:justify-start
+                      px-4 sm:px-6 md:px-0
+                    `}
+                  >
                     <div
                       data-memory-image
                       className={`
                         relative
-                        ${isLeft ? 'self-start md:self-auto' : 'self-end md:self-auto'}
+                        ${isLeft ? 'md:justify-end ml-auto' : 'md:justify-start mr-auto'}
                       `}
                     >
-                      <div className="w-24 h-24 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
+                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl border border-white/80 bg-white/80 shadow-xl overflow-hidden aspect-square">
                         <img
                           src={imageSrc}
                           alt=""
