@@ -33,11 +33,11 @@ const Intro = ({ show }) => {
           {/* Tablet/PC: én linje */}
           <span className="hidden md:inline">
             BRYLLUPSINVITASJON
-          </span>
+                </span>
         </h1>
         <p className="mt-4 font-montserrat text-[clamp(0.875rem,3vw,1.5rem)] text-deep-charcoal/80 tracking-[0.25em] uppercase">
           Svarfrist 1. mars
-        </p>
+            </p>
       </div>
     </div>
   );
