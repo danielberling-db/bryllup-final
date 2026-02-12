@@ -4,22 +4,35 @@ const RSVP = () => {
   return (
     <section id="rsvp-section" className="w-full max-w-full m-0 flex flex-col items-center justify-center py-12 md:py-32 px-4 sm:px-6 overflow-hidden relative bg-transparent">
       <div className="max-w-2xl mx-auto text-center">
-        <div className="bg-[#Fdfbf7] shadow-2xl rounded-lg p-8 md:p-12 border border-gray-200" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/watercolor.png")'}}>
-          <div className="mb-8">
-            <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Til Remine & Daniel</p>
-            <div className="relative inline-block w-32 h-32 mb-6">
-              {/* Hero-bilde som grafitt-rødt stempel bak teksten */}
+        <div className="relative bg-[#Fdfbf7] shadow-2xl rounded-lg p-8 md:p-12 border border-gray-200" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/watercolor.png")'}}>
+          {/* Postkort-stempel øverst til venstre */}
+          <div className="absolute top-4 left-4 -rotate-12 flex items-center gap-2">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
               <img
-                src="/hero.jpg"
-                alt="Stempelbilde"
+                src="/ring.jpg"
+                alt="Poststempel"
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 rotate-12 z-[-1]"
+                className="w-full h-full object-cover opacity-60"
+                style={{ filter: 'grayscale(100%) contrast(1.25)', mixBlendMode: 'multiply' }}
               />
-              <div className="w-full h-full rounded-full border-4 border-deep-charcoal opacity-90 flex items-center justify-center bg-white/60">
-                <span className="text-sm font-bold text-center text-deep-charcoal drop-shadow-[0_2px_2px_rgba(255,255,255,0.9)]">
-                  ODDERNES KIRKE<br/>23.05.2026
-                </span>
-              </div>
+            </div>
+            <span className="text-[10px] md:text-xs font-montserrat font-semibold tracking-widest uppercase text-deep-charcoal drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+              ODDERNES KIRKE<br />23.05.2026
+            </span>
+          </div>
+
+          <div className="mb-8">
+            <p className="font-vibes text-4xl md:text-5xl text-blue-900 mb-6">Fra: Remine & Daniel</p>
+
+          {/* Hovedmotiv-bilde over "Kommer du?" */}
+          <div className="mb-6 flex justify-center">
+            <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-lg border border-white/70">
+              <img
+                src="/ring.jpg"
+                alt="Bryllupsdetalj"
+                loading="lazy"
+                className="w-full h-full object-cover aspect-video"
+              />
             </div>
           </div>
 
