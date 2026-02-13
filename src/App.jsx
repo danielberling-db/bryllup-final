@@ -136,10 +136,10 @@ function App() {
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-7 py-2.5 md:py-3 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-[10px] md:text-base whitespace-nowrap flex flex-col items-center leading-tight"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3.5 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
                >
                  <span>SVAR</span>
-                 <span className="text-[7px] md:text-[10px] font-normal opacity-90">(1. mars)</span>
+                 <span className="text-[9px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
                </a>
              </div>
 
@@ -179,10 +179,10 @@ function App() {
              <div className="flex items-center justify-end flex-shrink-0 z-10 mr-1 md:mr-0">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-2.5 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-3.5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={28} className="md:w-14 md:h-14" /> : <Menu size={28} className="md:w-14 md:h-14" />}
+                 {menuOpen ? <X size={36} className="md:w-16 md:h-16" /> : <Menu size={36} className="md:w-16 md:h-16" />}
                </button>
              </div>
            </div>
