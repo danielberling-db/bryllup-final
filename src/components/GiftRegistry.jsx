@@ -24,14 +24,16 @@ const GiftRegistry = () => {
   const handleVippsClick = async () => {
     try {
       // Kopier telefonnummeret
-      await navigator.clipboard.writeText('+47 47 36 15 73');
+      await navigator.clipboard.writeText('47361573');
       setVippsCopied(true);
       
       // Åpne Vipps-appen
-      window.location.href = 'vipps://';
+      setTimeout(() => {
+        window.location.href = 'vipps://';
+      }, 500);
       
-      // Reset melding etter 3 sekunder
-      setTimeout(() => setVippsCopied(false), 3000);
+      // Reset melding etter 2 sekunder
+      setTimeout(() => setVippsCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy Vipps number:', err);
       // Fallback: prøv å åpne Vipps uansett
@@ -87,11 +89,15 @@ const GiftRegistry = () => {
               {/* Payment Buttons */}
               <div className="space-y-3 mb-6">
                 {/* Vipps - Top */}
+                <div className="my-4 p-4 bg-gradient-to-r from-rose-50 to-amber-50 rounded-lg">
+                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS NUMMER:</p>
+                  <p className="text-antique-gold font-cinzel text-2xl font-bold text-center">47 36 15 73</p>
+                </div>
                 <button
-                  onClick={() => handlePaymentClick('vipps://v1/pay?number=4747361573')}
-                  className="w-full bg-gradient-to-r from-[#FF5B8A] to-[#FF8C42] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat flex items-center justify-center gap-2"
+                  onClick={handleVippsClick}
+                  className="w-full border-2 border-[#FF5B8A] text-[#FF5B8A] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
                 >
-                  <span>VIPPS</span>
+                  {vippsCopied ? 'KOPIERT!' : 'KOPIER & ÅPNE VIPPS'}
                 </button>
                 <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
 
@@ -120,7 +126,7 @@ const GiftRegistry = () => {
 
                 {/* PayPal */}
                 <button
-                  onClick={() => handlePaymentClick('https://www.paypal.me/DanielBerling')}
+                  onClick={() => handlePaymentClick('https://www.paypal.me/danielberling632')}
                   className="w-full bg-gradient-to-r from-[#0070BA] to-[#009CDE] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   PAYPAL
@@ -170,17 +176,17 @@ const GiftRegistry = () => {
               {/* Payment Buttons */}
               <div className="space-y-3 mb-6">
                 {/* Vipps - Top */}
+                <div className="my-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg">
+                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS NUMMER:</p>
+                  <p className="text-antique-gold font-cinzel text-2xl font-bold text-center">47 36 15 73</p>
+                </div>
                 <button
                   onClick={handleVippsClick}
-                  className="w-full bg-gradient-to-r from-[#FF5B8A] to-[#FF8C42] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat flex items-center justify-center gap-2"
+                  className="w-full border-2 border-[#FF5B8A] text-[#FF5B8A] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
                 >
-                  <span>VIPPS</span>
+                  {vippsCopied ? 'KOPIERT!' : 'KOPIER & ÅPNE VIPPS'}
                 </button>
-                {vippsCopied ? (
-                  <p className="text-xs text-green-600 text-center font-semibold">Nummer kopiert! Åpner Vipps...</p>
-                ) : (
-                  <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
-                )}
+                <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
 
                 {/* Bank Transfer - Middle */}
                 <div className="border-t border-gray-200 pt-3">
@@ -207,7 +213,7 @@ const GiftRegistry = () => {
 
                 {/* PayPal */}
                 <button
-                  onClick={() => handlePaymentClick('https://www.paypal.com/paypalme/DanielBerling')}
+                  onClick={() => handlePaymentClick('https://www.paypal.me/danielberling632')}
                   className="w-full bg-gradient-to-r from-[#0070BA] to-[#009CDE] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   PAYPAL
