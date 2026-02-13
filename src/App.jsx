@@ -131,7 +131,7 @@ function App() {
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
            <div className="flex justify-between w-full items-center relative">
-             <div className="flex items-center flex-shrink-0 z-10 ml-1 md:ml-0">
+             <div className="flex items-center flex-shrink-0 z-10 ml-3 md:ml-0">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
@@ -157,10 +157,10 @@ function App() {
                { label: 'SEK', value: timeLeft.seconds }
              ].map((item, index) => (
                <React.Fragment key={item.label}>
-                   {index > 0 && <span className="text-[#D4AF37] font-cinzel text-xl md:text-xl font-bold mx-0 md:mx-1">:</span>}
-                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded-lg px-1.5 md:px-4 py-1.5 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+                   {index > 0 && <span className="text-[#D4AF37] font-cinzel text-lg md:text-xl font-bold mx-0 md:mx-1">:</span>}
+                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded-lg px-1.5 md:px-4 py-1 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
                    <div 
-                       className="font-cinzel text-3xl md:text-4xl font-black tracking-tight"
+                       className="font-cinzel text-2xl md:text-4xl font-black tracking-tight"
                      style={{
                        background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
                        WebkitBackgroundClip: 'text',
@@ -176,7 +176,7 @@ function App() {
              ))}
              </a>
 
-             <div className="flex items-center justify-end flex-shrink-0 z-10 mr-1 md:mr-0">
+             <div className="flex items-center justify-end flex-shrink-0 z-10 mr-3 md:mr-0">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
                  className="p-3.5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
