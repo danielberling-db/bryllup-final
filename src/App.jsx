@@ -126,12 +126,12 @@ function App() {
         `}
       >
         {/* Navigation with Countdown - Sunset Gradient Header */}
-        <nav className="fixed top-0 left-0 w-full z-50 px-5 md:px-8 pt-5 md:pt-4 pb-3 md:pb-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
+        <nav className="fixed top-0 left-0 w-full z-50 pt-5 md:pt-4 pb-3 md:pb-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
-           <div className="flex justify-between w-full items-center relative">
-             <div className="flex items-center flex-shrink-0 z-10 ml-3 md:ml-0">
+           <div className="flex justify-between items-center w-full px-4 md:px-8 relative">
+             <div className="flex-none z-10">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
@@ -148,7 +148,7 @@ function App() {
                href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
                target="_blank"
                rel="noopener noreferrer"
-               className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0 cursor-pointer"
+               className="absolute left-1/2 -translate-x-1/2 flex items-center gap-0.5 md:gap-3 z-0 cursor-pointer"
              >
              {[
                { label: 'DAGER', value: timeLeft.days },
@@ -176,7 +176,7 @@ function App() {
              ))}
              </a>
 
-             <div className="flex items-center justify-end flex-shrink-0 z-10 mr-3 md:mr-0">
+             <div className="flex-none z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
                  className="p-3.5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
