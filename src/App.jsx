@@ -130,16 +130,16 @@ function App() {
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
-           <div className="flex justify-between items-center w-full px-8 relative">
+           <div className="flex justify-between items-center w-full px-4 md:px-8 relative">
              <div className="flex-none z-10">
                <a
                  href="https://forms.gle/g58x6q98UHBacM6z7"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-7 md:px-8 py-4 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-base md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
+                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3.5 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
                >
                  <span>SVAR</span>
-                 <span className="text-[10px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
+                 <span className="text-[9px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
                </a>
              </div>
 
@@ -179,10 +179,10 @@ function App() {
              <div className="flex-none z-10">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-3.5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={47} className="md:w-16 md:h-16" /> : <Menu size={47} className="md:w-16 md:h-16" />}
+                 {menuOpen ? <X size={36} className="md:w-16 md:h-16" /> : <Menu size={36} className="md:w-16 md:h-16" />}
                </button>
              </div>
            </div>

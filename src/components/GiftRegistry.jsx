@@ -33,7 +33,7 @@ const GiftRegistry = () => {
       // Reset melding etter 3 sekunder
       setTimeout(() => setVippsCopied(false), 3000);
     } catch (err) {
-      console.error('Failed to copy or open Vipps:', err);
+      console.error('Failed to copy Vipps number:', err);
       // Fallback: prøv å åpne Vipps uansett
       window.location.href = 'vipps://';
     }
@@ -88,16 +88,12 @@ const GiftRegistry = () => {
               <div className="space-y-3 mb-6">
                 {/* Vipps - Top */}
                 <button
-                  onClick={handleVippsClick}
+                  onClick={() => handlePaymentClick('vipps://v1/pay?number=4747361573')}
                   className="w-full bg-gradient-to-r from-[#FF5B8A] to-[#FF8C42] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat flex items-center justify-center gap-2"
                 >
                   <span>VIPPS</span>
                 </button>
-                {vippsCopied ? (
-                  <p className="text-xs text-green-600 text-center font-semibold">Nummer kopiert! Åpner Vipps...</p>
-                ) : (
-                  <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
-                )}
+                <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
 
                 {/* Bank Transfer - Middle */}
                 <div className="border-t border-gray-200 pt-3">
@@ -124,7 +120,7 @@ const GiftRegistry = () => {
 
                 {/* PayPal */}
                 <button
-                  onClick={() => handlePaymentClick('https://www.paypal.com/paypalme/DanielBerling')}
+                  onClick={() => handlePaymentClick('https://www.paypal.me/DanielBerling')}
                   className="w-full bg-gradient-to-r from-[#0070BA] to-[#009CDE] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   PAYPAL
