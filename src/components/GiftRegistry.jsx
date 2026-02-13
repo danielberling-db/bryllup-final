@@ -4,6 +4,7 @@ import { Copy, Check, Home, Plane } from 'lucide-react';
 const GiftRegistry = () => {
   const [copiedHome, setCopiedHome] = useState(false);
   const [copiedTravel, setCopiedTravel] = useState(false);
+  const [vippsCopied, setVippsCopied] = useState(false);
 
   const handleCopy = async (text, type) => {
     try {
@@ -17,6 +18,24 @@ const GiftRegistry = () => {
       }
     } catch (err) {
       console.error('Failed to copy:', err);
+    }
+  };
+
+  const handleVippsClick = async () => {
+    try {
+      // Kopier telefonnummeret
+      await navigator.clipboard.writeText('+47 47 36 15 73');
+      setVippsCopied(true);
+      
+      // Åpne Vipps-appen
+      window.location.href = 'vipps://';
+      
+      // Reset melding etter 3 sekunder
+      setTimeout(() => setVippsCopied(false), 3000);
+    } catch (err) {
+      console.error('Failed to copy or open Vipps:', err);
+      // Fallback: prøv å åpne Vipps uansett
+      window.location.href = 'vipps://';
     }
   };
 
@@ -69,12 +88,16 @@ const GiftRegistry = () => {
               <div className="space-y-3 mb-6">
                 {/* Vipps - Top */}
                 <button
-                  onClick={() => handlePaymentClick('vipps://v1/pay?number=4747361573')}
+                  onClick={handleVippsClick}
                   className="w-full bg-gradient-to-r from-[#FF5B8A] to-[#FF8C42] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat flex items-center justify-center gap-2"
                 >
                   <span>VIPPS</span>
                 </button>
-                <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
+                {vippsCopied ? (
+                  <p className="text-xs text-green-600 text-center font-semibold">Nummer kopiert! Åpner Vipps...</p>
+                ) : (
+                  <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
+                )}
 
                 {/* Bank Transfer - Middle */}
                 <div className="border-t border-gray-200 pt-3">
@@ -101,7 +124,7 @@ const GiftRegistry = () => {
 
                 {/* PayPal */}
                 <button
-                  onClick={() => handlePaymentClick('https://www.paypal.me/DanielBerling')}
+                  onClick={() => handlePaymentClick('https://www.paypal.com/paypalme/DanielBerling')}
                   className="w-full bg-gradient-to-r from-[#0070BA] to-[#009CDE] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   PAYPAL
@@ -152,12 +175,16 @@ const GiftRegistry = () => {
               <div className="space-y-3 mb-6">
                 {/* Vipps - Top */}
                 <button
-                  onClick={() => handlePaymentClick('vipps://v1/pay?number=4747361573')}
+                  onClick={handleVippsClick}
                   className="w-full bg-gradient-to-r from-[#FF5B8A] to-[#FF8C42] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat flex items-center justify-center gap-2"
                 >
                   <span>VIPPS</span>
                 </button>
-                <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
+                {vippsCopied ? (
+                  <p className="text-xs text-green-600 text-center font-semibold">Nummer kopiert! Åpner Vipps...</p>
+                ) : (
+                  <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
+                )}
 
                 {/* Bank Transfer - Middle */}
                 <div className="border-t border-gray-200 pt-3">
@@ -184,7 +211,7 @@ const GiftRegistry = () => {
 
                 {/* PayPal */}
                 <button
-                  onClick={() => handlePaymentClick('https://www.paypal.me/DanielBerling')}
+                  onClick={() => handlePaymentClick('https://www.paypal.com/paypalme/DanielBerling')}
                   className="w-full bg-gradient-to-r from-[#0070BA] to-[#009CDE] text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   PAYPAL
