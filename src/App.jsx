@@ -178,6 +178,7 @@ function App() {
         className={`
           flex flex-col w-full max-w-full m-0 p-0 space-y-0 overflow-x-hidden
           transition-opacity duration-700 ease-out
+          min-h-screen
           ${showIntro ? 'opacity-0' : 'opacity-100'}
         `}
       >
