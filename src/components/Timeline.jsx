@@ -114,7 +114,7 @@ const Timeline = ({ showOnlyVielse = false }) => {
           {
             scale: 1,
             opacity: 0.7,
-            y: events[i].side === 'left' ? -4 : 4,
+            y: displayedEvents[i].side === 'left' ? -4 : 4,
             duration: 0.9,
             ease: 'power2.out',
             scrollTrigger: {
