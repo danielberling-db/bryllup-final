@@ -85,7 +85,7 @@ const GiftRegistry = () => {
 
             <div className="p-6 md:p-8">
               <p className="font-montserrat text-gray-700 mb-6 leading-relaxed text-center">
-                Hjelp oss å bygge vårt drømmehjem med gaver til hjemmet.
+                Hjelp oss å bygge vårt drømmehjem med økonomisk støtte til hjemmet.
               </p>
 
               {/* Payment Buttons */}
