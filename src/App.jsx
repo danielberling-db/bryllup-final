@@ -153,13 +153,13 @@ function App() {
               onClick={() => handleUserTypeSelect('invited')}
               className="w-full bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 font-cinzel text-lg"
             >
-              Invitert gjest (Se alt)
+              Invitert gjest og familie (Se alt)
             </button>
             <button
               onClick={() => handleUserTypeSelect('visitor')}
               className="w-full bg-gradient-to-r from-rose-200 to-amber-200 text-deep-charcoal px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 font-cinzel text-lg"
             >
-              Familie, venn eller bekjent (Se kun vielse og gaver)
+              Venn eller bekjent (Se info om Vielse og å Gi gave)
             </button>
           </div>
         </div>
