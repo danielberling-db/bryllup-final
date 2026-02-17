@@ -6,7 +6,6 @@ import { MapPin, Heart, Camera, Cake, Sparkles, Wine, Music, Mic2, Coffee, Users
 gsap.registerPlugin(ScrollTrigger);
 
 const events = [
-  { time: "10:00", title: "Sightseeing", desc: "Kristiansand sentrum for de som vil", side: "left", icon: MapPin },
   { time: "14:30", title: "Vielse", desc: "Oddernes Kirke", side: "right", highlight: true, icon: Heart },
   { time: "15:15", title: "Felles fotografering", desc: "Familie og venner", side: "left", icon: Camera },
   { time: "15:45", title: "Dørene Åpnes", desc: "Gjestene trekker inn", side: "right", icon: Users },

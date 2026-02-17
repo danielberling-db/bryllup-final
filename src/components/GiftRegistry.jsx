@@ -55,7 +55,9 @@ const GiftRegistry = () => {
           GI EN GAVE
         </h2>
         <p className="text-center font-montserrat text-deep-charcoal/70 mb-12 max-w-2xl mx-auto">
-          Vi setter pris på alle gaver, store som små. Velg den måten som passer best for deg.
+          Vi har ingen tradisjonell ønskeliste, men ønsker oss heller økonomisk støtte til våre to formål: vårt nye hjem og vår bryllupsreise.
+          <br /><br />
+          Tusen takk for at dere hjelper oss med å starte vårt neste kapittel sammen!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
