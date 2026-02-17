@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const events = [
   { time: "14:30", title: "Vielse", desc: "Oddernes Kirke", side: "right", highlight: true, icon: Heart },
   { time: "15:15", title: "Felles fotografering", desc: "Familie og venner", side: "left", icon: Camera },
-  { time: "15:45", title: "Dørene Åpnes", desc: "Gjestene trekker inn", side: "right", icon: Users },
+  { time: "15:45", title: "Oddernes Kapell", desc: "Oddernes Kapell: Gjestene trekker inn i festlokalet", side: "right", icon: Users },
   { time: "16:00", title: "Stor Festmiddag", desc: "Toastmastere åpner kvelden", side: "left", highlight: true, icon: Wine },
   { time: "16:30", title: "Taler", desc: "Kveldens første runde med gode ord", side: "right", icon: Mic2 },
   { time: "17:00", title: "Leker", desc: "Aktiviteter som løser opp stemningen", side: "left", icon: Sparkles },
@@ -191,6 +191,18 @@ const Timeline = () => {
                       <p className="text-gray-600 font-montserrat text-sm italic">
                         {evt.desc}
                       </p>
+                      {evt.title === 'Oddernes Kapell' && (
+                        <div className="mt-3">
+                          <a
+                            href="https://www.google.com/maps/search/?api=1&query=Oddernes+kapell+Jegersbergveien+6+Kristiansand&query_place_id=ChIJn870cQADOEYR6Gk_ZE_KOzM"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-4 py-2 text-xs font-montserrat font-semibold rounded-full border border-antique-gold text-antique-gold hover:bg-antique-gold hover:text-white transition-all duration-300"
+                          >
+                            SE KART
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
 
