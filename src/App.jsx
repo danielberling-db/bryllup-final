@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ReactLenis } from 'lenis/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, RefreshCw } from 'lucide-react';
 import ScrollGradient from './components/ScrollGradient';
 import Hero from './components/Hero';
 import Intro from './components/Intro';
@@ -36,6 +36,11 @@ function App() {
   const handleUserTypeSelect = (type) => {
     setUserType(type);
     localStorage.setItem('weddingUserType', type);
+  };
+
+  const handleSwitchMode = () => {
+    localStorage.removeItem('weddingUserType');
+    setUserType(null);
   };
 
   const isInvitedGuest = userType === 'invited';
@@ -328,6 +333,21 @@ function App() {
 
         {/* Footer */}
         <Footer />
+
+        {/* Bytt modus-knapp - Fixed nederst i høyre hjørne */}
+        {userType && (
+          <button
+            onClick={handleSwitchMode}
+            className="fixed bottom-6 right-6 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 backdrop-blur-md border border-antique-gold/30 shadow-lg hover:bg-white/40 hover:border-antique-gold/50 transition-all duration-300 flex items-center justify-center opacity-60 hover:opacity-100 group"
+            aria-label="Bytt modus"
+            title="Bytt modus"
+          >
+            <RefreshCw 
+              size={20} 
+              className="text-antique-gold group-hover:rotate-180 transition-transform duration-300" 
+            />
+          </button>
+        )}
       </main>
     </ReactLenis>
   );
