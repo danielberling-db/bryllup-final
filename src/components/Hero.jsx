@@ -22,11 +22,13 @@ const Hero = () => {
             <img 
               src="/aaker.jpg" 
               alt="Remine & Daniel" 
-              className="w-full max-h-[60vh] object-cover kenburns-hero" 
+              className="w-full max-h-[60vh] object-cover hero-pulse" 
               loading="eager"
               style={{
                 willChange: 'transform',
-                opacity: 0.8
+                opacity: 1,
+                transition: 'none',
+                transformOrigin: 'center'
               }}
             />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F2E8DA] to-transparent pointer-events-none"></div>

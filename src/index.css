@@ -61,19 +61,24 @@ html, body {
   100% { background-position: 200% 50%; }
 }
 
-/* KEN BURNS EFFECT - Slow zoom and subtle pan */
-@keyframes kenburns {
+/* FLOATING BREATH EFFECT - Subtle pulse and lift */
+@keyframes heroPulse {
   0% {
-    transform: scale(1.0) translate(0, 0);
+    transform: scale(1.0) translateY(0);
+  }
+  50% {
+    transform: scale(1.04) translateY(-10px); /* Subtil zoom og løft */
   }
   100% {
-    transform: scale(1.1) translate(-2%, -1%);
+    transform: scale(1.0) translateY(0);
   }
 }
 
-.kenburns-hero {
-  animation: kenburns 20s infinite alternate ease-in-out;
+.hero-pulse {
+  animation: heroPulse 12s ease-in-out infinite;
   will-change: transform;
+  transition: none !important;
+  transform-origin: center;
 }
 
 /* MARSHMALLOW EASE EFFECT */
