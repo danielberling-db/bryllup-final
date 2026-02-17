@@ -17,12 +17,29 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showIntro, setShowIntro] = useState(true);
+  const [userType, setUserType] = useState(null);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0
   });
+
+  // Load userType from localStorage on mount
+  useEffect(() => {
+    const savedUserType = localStorage.getItem('weddingUserType');
+    if (savedUserType) {
+      setUserType(savedUserType);
+    }
+  }, []);
+
+  const handleUserTypeSelect = (type) => {
+    setUserType(type);
+    localStorage.setItem('weddingUserType', type);
+  };
+
+  const isInvitedGuest = userType === 'invited';
+  const isVisitor = userType === 'visitor';
 
   useEffect(() => {
     const targetDate = new Date('2026-05-23T15:30:00');
@@ -83,14 +100,18 @@ function App() {
   }, []);
 
   const menuItems = [
-    { label: 'HJEM', href: '#' },
-    { label: 'VIELSEN', href: '#church-section' },
-    { label: 'TIDSPLAN', href: '#timeline-section' },
-    { label: 'OVERNATTING', href: '#logistics-section' },
-    { label: 'ØNSKELISTE', href: '#gift-section' },
-    { label: 'SPØRSMÅL', href: '#faq-section' },
-    { label: 'SVAR', href: 'https://forms.gle/g58x6q98UHBacM6z7', external: true }
-  ];
+    { label: 'HJEM', href: '#', showFor: 'all' },
+    { label: 'VIELSEN', href: '#church-section', showFor: 'all' },
+    { label: 'TIDSPLAN', href: '#timeline-section', showFor: 'invited' },
+    { label: 'OVERNATTING', href: '#logistics-section', showFor: 'invited' },
+    { label: 'ØNSKELISTE', href: '#gift-section', showFor: 'all' },
+    { label: 'SPØRSMÅL', href: '#faq-section', showFor: 'invited' },
+    { label: 'SVAR', href: 'https://forms.gle/g58x6q98UHBacM6z7', external: true, showFor: 'invited' }
+  ].filter(item => {
+    if (item.showFor === 'all') return true;
+    if (item.showFor === 'invited' && isInvitedGuest) return true;
+    return false;
+  });
 
   const handleMenuClick = (href, external) => {
     setMenuOpen(false);
@@ -110,6 +131,36 @@ function App() {
     }, 100);
     }
   };
+
+  // Show welcome screen if userType is not selected
+  if (!userType) {
+    return (
+      <div className="fixed inset-0 z-[200] flex items-center justify-center bg-gradient-to-br from-rose-100 via-amber-50 to-yellow-50">
+        <div className="max-w-md mx-auto px-6 py-12 text-center">
+          <h1 className="font-cinzel text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-amber-200 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+            Velkommen til vårt bryllup!
+          </h1>
+          <p className="font-montserrat text-deep-charcoal text-lg mb-8">
+            Er du...
+          </p>
+          <div className="space-y-4">
+            <button
+              onClick={() => handleUserTypeSelect('invited')}
+              className="w-full bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 font-cinzel text-lg"
+            >
+              Invitert gjest (Se alt)
+            </button>
+            <button
+              onClick={() => handleUserTypeSelect('visitor')}
+              className="w-full bg-gradient-to-r from-rose-200 to-amber-200 text-deep-charcoal px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 font-cinzel text-lg"
+            >
+              Familie, venn eller bekjent (Se kun vielse og gaver)
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ReactLenis root>
@@ -131,17 +182,20 @@ function App() {
         }}>
            {/* Top Row: SVAR, Countdown, Menu */}
            <div className="flex justify-between items-center w-full px-4 md:px-8 relative">
-             <div className="flex-none z-10">
-               <a
-                 href="https://forms.gle/g58x6q98UHBacM6z7"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3.5 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
-               >
-                 <span>SVAR</span>
-                 <span className="text-[9px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
-               </a>
-             </div>
+             {isInvitedGuest && (
+               <div className="flex-none z-10">
+                 <a
+                   href="https://forms.gle/g58x6q98UHBacM6z7"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-5 md:px-8 py-3.5 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-sm md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
+                 >
+                   <span>SVAR</span>
+                   <span className="text-[9px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
+                 </a>
+               </div>
+             )}
+             {!isInvitedGuest && <div className="flex-none z-10"></div>}
 
              {/* Countdown - Klikkbar, sentrert, DOMINERENDE på mobil */}
              <a 
@@ -254,20 +308,23 @@ function App() {
         <Church />
 
         {/* Timeline */}
-        <Timeline />
-
+        {isInvitedGuest ? (
+          <Timeline showOnlyVielse={false} />
+        ) : (
+          <Timeline showOnlyVielse={true} />
+        )}
 
         {/* Logistics Cards */}
-        <Logistics />
+        {isInvitedGuest && <Logistics />}
 
         {/* Gift Registry */}
         <GiftRegistry />
 
         {/* FAQ Section */}
-        <FAQ />
+        {isInvitedGuest && <FAQ />}
 
         {/* RSVP */}
-        <RSVP />
+        {isInvitedGuest && <RSVP />}
 
         {/* Footer */}
         <Footer />

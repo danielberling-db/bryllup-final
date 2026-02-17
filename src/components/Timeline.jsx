@@ -37,9 +37,14 @@ const memoryImages = [
   '/leken.jpg'
 ];
 
-const Timeline = () => {
+const Timeline = ({ showOnlyVielse = false }) => {
   const svgRef = useRef(null);
   const containerRef = useRef(null);
+
+  // Filter events based on showOnlyVielse prop
+  const displayedEvents = showOnlyVielse 
+    ? events.filter(evt => evt.title === 'Vielse')
+    : events;
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -86,7 +91,7 @@ const Timeline = () => {
       const textBox = item.querySelector('[data-text-box]');
       if (textBox) {
         gsap.fromTo(textBox,
-          { x: events[i].side === 'left' ? -50 : 50, opacity: 0 },
+          { x: displayedEvents[i].side === 'left' ? -50 : 50, opacity: 0 },
           {
             x: 0,
             opacity: 1,
@@ -105,7 +110,7 @@ const Timeline = () => {
       if (memoryEl) {
         gsap.fromTo(
           memoryEl,
-          { scale: 0, opacity: 0, y: events[i].side === 'left' ? 16 : -16 },
+          { scale: 0, opacity: 0, y: displayedEvents[i].side === 'left' ? 16 : -16 },
           {
             scale: 1,
             opacity: 0.7,
@@ -160,7 +165,7 @@ const Timeline = () => {
         </svg>
 
         <div className="relative z-10 space-y-32">
-          {events.map((evt, i) => {
+          {displayedEvents.map((evt, i) => {
             const IconComponent = evt.icon;
             const isLeft = evt.side === 'left';
             const imgIndex = i % memoryImages.length;
