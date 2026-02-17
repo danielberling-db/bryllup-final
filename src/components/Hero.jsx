@@ -1,20 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const containerRef = useRef(null);
-  const heroImgRef = useRef(null);
   const textRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: containerRef.current, start: "top top", end: "bottom top", scrub: 1 }
-    });
-
-    tl.to(heroImgRef.current, { scale: 0.8, y: 100, opacity: 0 }, 0);
-
+    // Initial fade-in for text only (not scroll-based)
     gsap.fromTo(textRef.current,
       { scale: 0.9, opacity: 0 },
       { scale: 1, opacity: 1, duration: 1.5, ease: "elastic.out(1, 0.5)", delay: 0.5 }
@@ -25,11 +17,20 @@ const Hero = () => {
     <section ref={containerRef} className="relative w-full max-w-full m-0 overflow-hidden flex flex-col items-center justify-center min-h-[85vh] md:min-h-0 pt-[180px] md:pt-28 pb-0 bg-transparent">
       {/* Hovedbilde - Starter fra toppen, skinner gjennom header */}
       <div className="relative z-10 flex items-center justify-center mb-2 md:mb-8 px-8 md:px-6">
-        <div ref={heroImgRef} className="relative w-full max-w-[1000px] rounded-[24px] shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02]">
+        <div className="relative w-full max-w-[1000px] rounded-[24px] shadow-2xl overflow-hidden">
           <div className="relative overflow-hidden">
-            <img src="/aaker.jpg" alt="Remine & Daniel" className="w-full max-h-[60vh] object-cover" loading="eager" />
+            <img 
+              src="/aaker.jpg" 
+              alt="Remine & Daniel" 
+              className="w-full max-h-[60vh] object-cover kenburns-hero" 
+              loading="eager"
+              style={{
+                willChange: 'transform',
+                opacity: 0.8
+              }}
+            />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F2E8DA] to-transparent pointer-events-none"></div>
-              </div>
+          </div>
         </div>
       </div>
 
