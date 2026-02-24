@@ -186,31 +186,37 @@ function App() {
         <nav className="fixed top-0 left-0 w-full z-50 pt-5 md:pt-4 pb-3 md:pb-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
-           {/* Top Row: SVAR (eller placeholder) | Nedtelling | Hamburger – tre kolonner i dokumentflyt */}
-           <div className="flex items-center w-full px-2 md:px-8 gap-1 md:gap-2">
+           {/* Top Row: SVAR (eller placeholder) | Nedtelling | Hamburger – tre tydelige kolonner */}
+           <div className="grid grid-cols-[auto,1fr,auto] items-center w-full px-2 md:px-8 gap-1 md:gap-2">
              {/* Venstre: SVAR eller usynlig placeholder (reserverer plass i Venn/Bekjent-modus) */}
-             <div className="flex-none min-w-[72px] md:min-w-[120px] flex justify-start">
+             <div className="justify-self-start">
                {isInvitedGuest ? (
                  <a
                    href="https://forms.gle/g58x6q98UHBacM6z7"
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-8 py-2.5 md:py-4 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-xs md:text-lg whitespace-nowrap flex flex-col items-center leading-tight"
+                   className="bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-6 py-2.5 md:py-3.5 rounded-full font-semibold shadow-lg marshmallow-transform font-cinzel text-[10px] md:text-sm whitespace-nowrap flex flex-col items-center leading-tight"
                  >
                    <span>SVAR</span>
-                   <span className="text-[8px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
+                   <span className="text-[8px] md:text-[10px] font-normal opacity-90">(1. mars)</span>
                  </a>
                ) : (
-                 <span className="invisible text-xs font-cinzel whitespace-nowrap" aria-hidden="true">SVAR</span>
+                 <span
+                   className="invisible bg-gradient-to-r from-antique-gold to-[#FCF6BA] text-white px-3 md:px-6 py-2.5 md:py-3.5 rounded-full font-semibold font-cinzel text-[10px] md:text-sm whitespace-nowrap flex flex-col items-center leading-tight"
+                   aria-hidden="true"
+                 >
+                   <span>SVAR</span>
+                   <span>(1. mars)</span>
+                 </span>
                )}
              </div>
 
-             {/* Midten: Nedtelling – sentrert i sin kolonne, ingen absolute */}
+             {/* Midten: Nedtelling – har prioritet på plassen */}
              <a
                href="https://www.onskelister.no/liste?id=Wn6HUmvekcuEJKmi63ky"
                target="_blank"
                rel="noopener noreferrer"
-               className="flex-1 min-w-0 flex items-center justify-center gap-0.5 md:gap-3 cursor-pointer"
+               className="flex min-w-0 items-center justify-center gap-0.5 md:gap-3 cursor-pointer"
              >
                {[
                  { label: 'DAGER', value: timeLeft.days },
@@ -219,10 +225,14 @@ function App() {
                  { label: 'SEK', value: timeLeft.seconds }
                ].map((item, index) => (
                  <React.Fragment key={item.label}>
-                   {index > 0 && <span className="text-[#D4AF37] font-cinzel text-lg md:text-xl font-bold mx-0 md:mx-1">:</span>}
-                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded-lg px-1.5 md:px-4 py-1 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+                   {index > 0 && (
+                     <span className="text-[#D4AF37] font-cinzel text-xs md:text-xl font-bold mx-0 md:mx-1">
+                       :
+                     </span>
+                   )}
+                   <div className="text-center bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/40 rounded-lg px-1 md:px-3 py-1 md:py-2.5 shadow-lg hover:shadow-xl transition-all duration-300">
                      <div
-                       className="font-cinzel text-2xl md:text-4xl font-black tracking-tight"
+                       className="font-cinzel text-xl md:text-4xl font-black tracking-tight"
                        style={{
                          background: 'linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)',
                          WebkitBackgroundClip: 'text',
@@ -232,20 +242,22 @@ function App() {
                      >
                        {String(item.value).padStart(2, '0')}
                      </div>
-                     <div className="text-[7px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">{item.label}</div>
+                     <div className="text-[7px] md:text-[10px] font-montserrat text-[#D4AF37] font-semibold tracking-wider uppercase mt-0.5 md:mt-1">
+                       {item.label}
+                     </div>
                    </div>
                  </React.Fragment>
                ))}
              </a>
 
-             {/* Høyre: Hamburger – fast bredde */}
-             <div className="flex-none min-w-[44px] md:min-w-[56px] flex justify-end">
+             {/* Høyre: Hamburger – fast bredde, dyttes helt til høyre */}
+             <div className="justify-self-end">
                <button
                  onClick={() => setMenuOpen(!menuOpen)}
-                 className="p-2.5 md:p-5 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
+                 className="p-2.5 md:p-4 text-deep-charcoal hover:text-antique-gold marshmallow-transform flex items-center justify-center"
                  aria-label="Toggle menu"
                >
-                 {menuOpen ? <X size={28} className="md:w-16 md:h-16" /> : <Menu size={28} className="md:w-16 md:h-16" />}
+                 {menuOpen ? <X size={28} className="md:w-8 md:h-8" /> : <Menu size={28} className="md:w-8 md:h-8" />}
                </button>
              </div>
            </div>
