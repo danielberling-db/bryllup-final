@@ -186,10 +186,10 @@ function App() {
         <nav className="fixed top-0 left-0 w-full z-50 pt-5 md:pt-4 pb-3 md:pb-3 transition-all duration-300 backdrop-blur-md border-b border-antique-gold/20" style={{
           background: `linear-gradient(135deg, rgba(255, 182, 193, ${scrollY > 50 ? 0.85 : 0.4}), rgba(255, 140, 66, ${scrollY > 50 ? 0.85 : 0.4}), rgba(212, 175, 55, ${scrollY > 50 ? 0.85 : 0.4}))`
         }}>
-           {/* Top Row: SVAR, Countdown, Menu */}
+           {/* Top Row: SVAR (eller placeholder), Countdown, Hamburger – fast struktur uavhengig av modus */}
            <div className="flex justify-between items-center w-full px-4 md:px-8 relative">
-             {isInvitedGuest && (
-               <div className="flex-none z-10">
+             <div className="flex-none z-10 min-w-[100px] md:min-w-[120px]">
+               {isInvitedGuest ? (
                  <a
                    href="https://forms.gle/g58x6q98UHBacM6z7"
                    target="_blank"
@@ -199,9 +199,10 @@ function App() {
                    <span>SVAR</span>
                    <span className="text-[9px] md:text-[11px] font-normal opacity-90">(1. mars)</span>
                  </a>
-               </div>
-             )}
-             {!isInvitedGuest && <div className="flex-none z-10"></div>}
+               ) : (
+                 <span className="invisible" aria-hidden="true">SVAR</span>
+               )}
+             </div>
 
              {/* Countdown - Klikkbar, sentrert, DOMINERENDE på mobil */}
              <a 

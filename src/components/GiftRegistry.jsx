@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Copy, Check, Home, Plane } from 'lucide-react';
 
+const VIPPS_OPTIONS = [
+  { name: 'Daniel', display: '47 36 15 73', copyValue: '47361573' },
+  { name: 'Remine', display: '48 46 55 09', copyValue: '48465509' },
+];
+
 const GiftRegistry = () => {
   const [copiedHome, setCopiedHome] = useState(false);
   const [copiedTravel, setCopiedTravel] = useState(false);
-  const [vippsCopied, setVippsCopied] = useState(false);
+  const [vippsCopied, setVippsCopied] = useState(null); // 'card1-daniel' | 'card1-remine' | 'card2-daniel' | 'card2-remine' | null
 
   const handleCopy = async (text, type) => {
     try {
@@ -21,22 +26,17 @@ const GiftRegistry = () => {
     }
   };
 
-  const handleVippsClick = async () => {
+  const handleVippsCopy = async (copyValue, id) => {
     try {
-      // Kopier telefonnummeret
-      await navigator.clipboard.writeText('47361573');
-      setVippsCopied(true);
-      
-      // Åpne Vipps-appen
+      await navigator.clipboard.writeText(copyValue);
+      setVippsCopied(id);
+      setTimeout(() => setVippsCopied(null), 2000);
+      // Åpne Vipps-appen rett etter kopiering
       setTimeout(() => {
         window.location.href = 'vipps://';
-      }, 500);
-      
-      // Reset melding etter 2 sekunder
-      setTimeout(() => setVippsCopied(false), 2000);
+      }, 400);
     } catch (err) {
       console.error('Failed to copy Vipps number:', err);
-      // Fallback: prøv å åpne Vipps uansett
       window.location.href = 'vipps://';
     }
   };
@@ -90,17 +90,23 @@ const GiftRegistry = () => {
 
               {/* Payment Buttons */}
               <div className="space-y-3 mb-6">
-                {/* Vipps - Top */}
-                <div className="my-4 p-4 bg-gradient-to-r from-rose-50 to-amber-50 rounded-lg">
-                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS NUMMER:</p>
-                  <p className="text-antique-gold font-cinzel text-2xl font-bold text-center">47 36 15 73</p>
+                {/* Vipps - Daniel og Remine */}
+                <div className="my-4 p-4 bg-gradient-to-r from-rose-50 to-amber-50 rounded-lg space-y-3">
+                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS:</p>
+                  {VIPPS_OPTIONS.map((opt) => (
+                    <div key={opt.name} className="flex flex-wrap items-center justify-center gap-2">
+                      <span className="text-deep-charcoal text-sm font-montserrat">{opt.name}:</span>
+                      <code className="text-antique-gold font-cinzel text-xl font-bold">{opt.display}</code>
+                      <button
+                        type="button"
+                        onClick={() => handleVippsCopy(opt.copyValue, `home-${opt.name.toLowerCase()}`)}
+                        className="px-3 py-1.5 border-2 border-[#FF5B8A] text-[#FF5B8A] rounded-full font-bold text-sm transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
+                      >
+                        {vippsCopied === `home-${opt.name.toLowerCase()}` ? 'KOPIERT!' : 'Kopier & åpne Vipps'}
+                      </button>
+                    </div>
+                  ))}
                 </div>
-                <button
-                  onClick={handleVippsClick}
-                  className="w-full border-2 border-[#FF5B8A] text-[#FF5B8A] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
-                >
-                  {vippsCopied ? 'KOPIERT!' : 'KOPIER & ÅPNE VIPPS'}
-                </button>
                 <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
 
                 {/* Bank Transfer - Middle */}
@@ -177,17 +183,23 @@ const GiftRegistry = () => {
 
               {/* Payment Buttons */}
               <div className="space-y-3 mb-6">
-                {/* Vipps - Top */}
-                <div className="my-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg">
-                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS NUMMER:</p>
-                  <p className="text-antique-gold font-cinzel text-2xl font-bold text-center">47 36 15 73</p>
+                {/* Vipps - Daniel og Remine */}
+                <div className="my-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg space-y-3">
+                  <p className="font-bold text-deep-charcoal text-sm mb-2 text-center">VIPPS:</p>
+                  {VIPPS_OPTIONS.map((opt) => (
+                    <div key={opt.name} className="flex flex-wrap items-center justify-center gap-2">
+                      <span className="text-deep-charcoal text-sm font-montserrat">{opt.name}:</span>
+                      <code className="text-antique-gold font-cinzel text-xl font-bold">{opt.display}</code>
+                      <button
+                        type="button"
+                        onClick={() => handleVippsCopy(opt.copyValue, `travel-${opt.name.toLowerCase()}`)}
+                        className="px-3 py-1.5 border-2 border-[#FF5B8A] text-[#FF5B8A] rounded-full font-bold text-sm transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
+                      >
+                        {vippsCopied === `travel-${opt.name.toLowerCase()}` ? 'KOPIERT!' : 'Kopier & åpne Vipps'}
+                      </button>
+                    </div>
+                  ))}
                 </div>
-                <button
-                  onClick={handleVippsClick}
-                  className="w-full border-2 border-[#FF5B8A] text-[#FF5B8A] px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-[#FF5B8A] hover:text-white font-montserrat"
-                >
-                  {vippsCopied ? 'KOPIERT!' : 'KOPIER & ÅPNE VIPPS'}
-                </button>
                 <p className="text-xs text-gray-500 text-center">Best for beløp under 5 000 kr</p>
 
                 {/* Bank Transfer - Middle */}
